@@ -1,0 +1,106 @@
+﻿<html lang="cz-cs">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Šablona</title>
+      <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js" ></script> -->
+      <script type="text/javascript" src="jquery-3.1.1.js"></script>
+      <!-- <link href='https://fonts.googleapis.com/css?family=Nunito Sans' rel='stylesheet'> -->
+      <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+      <link rel="stylesheet" href="w3.css">
+      <link rel="stylesheet" type="text/css" href="css.css">
+
+      <!-- App -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+      <script type="text/javascript" src="https://d3js.org/d3.v4.min.js" ></script>
+      <script type="text/javascript" src="institutions.js"></script>
+      <script type="text/javascript" src="ddldata.js"></script>
+      <script type="text/javascript" src="scatter.js"></script>
+      <script type="text/javascript" src="controls.js"></script>
+
+      <link rel="stylesheet" type="text/css" href="chart.css"></link>
+
+   </head>
+
+   <body onload="DrawAllCharts()">
+       <div id="content">
+            <div id="firstpage" class="slide" style="border-bottom: none;" onload="">
+                <div id="headers">
+                    <h1 id="title">Institucionální hodnocení dle IDEA</h1>
+                    <h2 id="subtitle">Kdo je kdo v institucionálním hodnocení?</h2>
+                    <a href="https://idea.cerge-ei.cz/" target="_blank"><img src="IDEA.png" class="logo"/></a>
+                    <a href="http://av21.avcr.cz/" target="_blank" ><img src="justStrategyWhite.png" class="logo"/></a>
+                    <p>Vítek Macháček a Martin Srholec</p>
+                </div>
+                <!-- <a class="movefurther" src="#" onclick="MoveOn('oCemMluvime')"><img width="50" src="down-arrow.svg" /></a> -->
+            </div>
+        <div style="height: 80px;">
+            <div id="menu">
+                <a class="storyPast" onclick="MoveOn('firstpage')">Úvod</a>
+                <a id="moCemMluvime" onclick="MoveOn('oCemMluvime')">O čem mluvíme?</a>
+                <a id="mzJakychDat" onclick="MoveOn('zJakychDat')">Z jakých dat vycházíme?</a>
+            </div>
+        </div>
+
+          <div id="oCemMluvime" class="slide">
+            <div class="wrap">
+                <p>Každá vláda, každý manažer výzkumu se rád zaklíná <a class="modalLink" onclick="showModal('modExcelence')">excelencí</a> ve výzkumu. Špičkový výzkum totiž nekultivuje jen ducha, ale je také cestou k prosperitě. Od slov k činům ale může být poměrně daleko. Někteří akademici totiž výsledky své práce publikují v časopisech, jejichž vědecká excelence je snadno zpochybnitelná.</p>
+                <p> Výzkumníci IDEA ve svých  <a class="modalLink" onclick="showModal('modPrevious')">předchozích </a> pracích ukázali, že v tomto smyslu výrazně zaostáváme za západními státy.  Naše předchozí práce se ale více zaměřovaly na celé státy. Celostátní výsledky ale následně vrhají špatné světlo na výzkumníky, kteří se o kvalitní výzkum upřímně snaží a kterým se to i daří. I takových je v Česku dost</p>
+            </div>
+            <!-- <a class="movefurther" src="#" onclick="MoveOn('oCemMluvime')"><img width="50" src="down-arrow.svg" /></a> -->
+
+          </div>
+
+          <div id="zJakychDat" class="slide">
+              <div class="wrap">
+                <h3>Z jakých dat vycházíme?</h3>
+                <p>Hlavním zdrojem informací jsou vědecké články, které instituce nahlásily do systému RIV. Na jejich základě pak tyto instituce získaly část svých prostředků z veřejného rozpočtu a tudíž by měly obsahovat to nejlepší, co na dané instituci vzniklo. </p>
+                <p>Data o mezinárodní orientaci jednotlivých časopisů pochází z bibliometrické databáze Scopus a seznam predátorských časopisů čerpáme z naší předchozí studie na toto téma. </p>
+                <p>Aby byly obě databáze vzájemně co nejlépe porovnatelné, byla data očištěna tak aby obsahovala pouze články indexované v databázi Scopus. </p>
+              </div>
+              <!-- <a class="movefurther" src="#" onclick="MoveOn('oCemMluvime')"><img width="50" src="down-arrow.svg" /></a> -->
+          </div>
+
+          <div id="app" class="slide">
+              <div id="mainchart"class="wrap">
+                  <h3>Interaktivní aplikace</h3>
+              </div>
+          </div>
+      </div>
+
+      <div id= "modalWrap" class="modalBackground">
+        <div id="modExcelence" class="modal">
+            <!-- <div class="modalHeader">
+            </div> -->
+            <div class="close" onclick="hideModal()"><img src="closeIcon3.svg" /></div>
+            <div  class="modalBody">
+                <h3>Excelence výzkumu</h3>
+                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+            </div>
+
+        </div>
+        <div id="modPrevious" class="modal">
+            <div class="close" onclick="hideModal()"><img src="closeIcon3.svg" /></div>
+            <div class="modalBody">
+                <h3>Předchozí studie IDEA</h3>
+                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+            </div>
+        </div>
+            <!-- <div class="modalFooter">
+
+            </div> -->
+    </div>
+   </body>
+   <script type="text/javascript" src="script.js"></script>
+   <script type="text/javascript" src="controls.js"></script>
+</html>
