@@ -2,7 +2,7 @@ var chartTitle = 'Články v predátorských a místních časopisech v různýc
 var yAxisLabel = 'Podíl výsledků v RIV publikovaných v predátorských časopisech'
 var xAxisLabel = 'Podíl výsledků v RIV publikovaných v místních časopisech'
 
-var mainAppStory = 'Graf ukazuje, jaká pracoviště své Scopusové články často publikují v <a class="modalLink" onclick="showModal(\'modPredatori\')">predátorských</a> (vlevo nahoře) a jaké v <a class="modalLink" onclick="showModal(\'modMistni\')">místních</a> časopisech (vpravo dole). Pracoviště v levém dolním rohu do takových časopisů žádné články neposílají.'
+var mainAppStory = 'Graf ukazuje, jaká <a class="modalLink" onclick="showModal(\'modPracoviste\')">pracoviště</a> své Scopusové články často publikují v <a class="modalLink" onclick="showModal(\'modPredatori\')">predátorských</a> (vlevo nahoře) a jaké v <a class="modalLink" onclick="showModal(\'modMistni\')">místních</a> časopisech (vpravo dole). Pracoviště v levém dolním rohu do takových časopisů žádné články neposílají.'
 
 var fields = ['Zemědělské a veterinární vědy', 'Technické vědy', 'Humanitní vědy', 'Lékařské vědy','Přírodní vědy','Společenské vědy']
 var usedfields = fields;
@@ -368,7 +368,7 @@ function createSelect2(parent) {
       };
       
       $('#ddlSearch').select2({
-        placeholder: {id:'',text: 'Vyhledejte pracoviště ...'},
+        placeholder: {id:'',text: 'Vyhledejte pracoviště či organizaci ...'},
         allowClear: true,
         closeOnSelect:true,
         width: '85%',
