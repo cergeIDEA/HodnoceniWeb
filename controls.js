@@ -35,9 +35,8 @@ function ddlChange() {
 
     if (anythingSelected) {
         var IsOrg = (orgs.includes(id)) ? true : false;
-
+        $('#rstBtn').addClass('buttonActive')
         if (IsOrg) {
-            closeDescBox(false);
             listinst = $.map(institutions,function(el) {return el;});
             ds = listinst.filter(d => d.Predkladatel_short === id);
 
@@ -45,18 +44,25 @@ function ddlChange() {
                 {
                     value.selected = 1;
                 });
+            openDescBoxHelp();
+
         }
          else {
             if(includedInsts.includes(id)) {
                 d = institutions[id];
                     d.selected = 1;
-                    openDescBox(d);
+                    openDescBoxData(d);
                 }
                 else {
                     d = excludedInsts[id];
                     openDescBoxNA(d);
                 }
         }
+    }
+    else {
+        openDescBoxHelp();
+        $('#rstBtn').removeClass('buttonActive')
+
     }
     DrawData();
 }
@@ -80,15 +86,17 @@ function openDescBoxNA(d) {
     })
 };
 
-function openDescBox(d) {
-    $('#descBox').css('display','block');
-    $('#descBox').animate({height:'150px'},500, function() {
-        $('#iJednotka').html('<strong>' + d.Jednotka_name + '</strong>')
-        $('#iPredkladatel').html('Předkladatel: ' +  d.Predkladatel_long);
-        $('#iResults').html('V letech 2011 - 2015 instituce do RIV přihlásila celkem ' + d.Total + ' výsledků. <br> Z nich ' + d.Czech + ' vyšlo v místních a dalších ' + d.Predatory + ' v predátorských časopisech')
-        $('#closeDescLink').html('<a id="closeDescLink" href="#" onclick="closeDescBox(institutions);"><img src="CloseIcon.png" height="30" width="30"></img></a>')
-        $('#iExcel').html('Ke stažení je k dispozici seznam <a href="xls/'+ d.JEDNOTKA +'_Local.xlsx">místních</a>, <a href="xls/'+ d.JEDNOTKA +'_Predatory.xlsx">predátorských</a> a i <a href="xls/'+ d.JEDNOTKA +'_All.xlsx">všech</a> výsledků přihlášených do RIV.')
-  })
+function openDescBoxHelp() {
+    $('#iJednotka').html('Pro podrobnosti o jednotlivých pracovištích klikněte na jednotlivé body či je vyhledejte v seznamu')
+    $('#iResults').html('Kliknutím na legendu je možné zobrazit a skrýt pracoviště v různých oborech a typech pracovišť.')
+    $('#Excel').html('')
+
+}
+
+function openDescBoxData(d) {
+    $('#iJednotka').html('<strong>' + d.Jednotka_name + '</strong> (' + d.Predkladatel_long + ')')
+    $('#iResults').html('V letech 2011 - 2015 instituce do RIV přihlásila celkem ' + d.Total + ' výsledků. Z nich ' + d.Czech + ' vyšlo v místních a dalších ' + d.Predatory + ' v predátorských časopisech')
+    $('#iExcel').html('Ke stažení je k dispozici seznam <a href="xls/'+ d.JEDNOTKA +'_Local.xlsx">místních</a>, <a href="xls/'+ d.JEDNOTKA +'_Predatory.xlsx">predátorských</a> a i <a href="xls/'+ d.JEDNOTKA +'_All.xlsx">všech</a> výsledků přihlášených do RIV.')
 }
 
 function closeDescBox(redraw=true)
@@ -119,4 +127,6 @@ function SelectSinglePoint(d) {
   //$('#ddlSearch option[value='+d.ID + ']').attr('selected','selected');
   d.selected = 1;
   DrawData(institutions,[d]);
+  $('#rstBtn').addClass('buttonActive')
+
 }

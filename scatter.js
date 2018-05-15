@@ -2,6 +2,8 @@ var chartTitle = 'Články v predátorských a místních časopisech v různýc
 var yAxisLabel = 'Podíl výsledků v RIV publikovaných v predátorských časopisech'
 var xAxisLabel = 'Podíl výsledků v RIV publikovaných v místních časopisech'
 
+var mainAppStory = 'Graf ukazuje, jaká pracoviště své Scopusové články často publikují v predátorských (vlevo nahoře) a jaké v místních časopisech (vpravo dole). Pracoviště v levém dolním rohu do takových časopisů nic neposílají.'
+
 var fields = ['Zemědělské a veterinární vědy', 'Technické vědy', 'Humanitní vědy', 'Lékařské vědy','Přírodní vědy','Společenské vědy']
 var usedfields = fields;
 var types = ['Akademie věd','Vysoké školy','Ostatní']
@@ -9,7 +11,7 @@ var usedtypes = types;
 
 var div;
 
-var margin,width,height;
+var margin,width,height,slideWidth,slideHeight;
 var xScale,xAxis,yScale,yAxis,color;
 var svg,g,circles,tooltip;
 
@@ -36,6 +38,7 @@ function toggleLegendFieldClick(field){
         usedfields.push(field)
     }
     DrawData();
+    $('#rstBtn').addClass('buttonActive')
 }
 
 function toggleLegendTypeClick(type){
@@ -46,6 +49,8 @@ function toggleLegendTypeClick(type){
         usedtypes.push(type)
     }
     DrawData();
+    $('#rstBtn').addClass('buttonActive')
+
 }
 
 
@@ -70,7 +75,7 @@ function DrawData(selectedPoints=null) {
         .attr('cx', function(d) {return xScale(d.LocalShare); })
         .attr('cy', function(d) {return yScale(d.PredatoryShare); })
         .attr('r', function(d) {
-                if (d.selected != 0){ return '10px'}
+                if (d.selected != 0){ return '5px'}
             else {return '5px'} } )
         .attr('fill',function(d) {return color(d.Obor); })
         .attr('id',function(d) {return d.JEDNOTKA})
@@ -109,7 +114,7 @@ function DrawData(selectedPoints=null) {
         })
         .on("click", function(d) {
           SelectSinglePoint(d);
-          openDescBox(d);
+          openDescBoxData(d);
         });
 
 };
@@ -318,22 +323,30 @@ function DrawTypeLegend(){
 
 };
 
-function generateElementStructure(selector) {
+function generateElementStructure(selector,storyText) {
     var parent = $(selector);
 
     parent.empty();
     parent = createSelect2(parent)
-    parent.append($('<div id="chart" />'));
+    parent.append($('<div />', {id:'chart'}));
+    
+    chartdiv = $('#chart');
 
-    descbox = $('<div />', {id:'descBox',class:'boxclosed'})
+
+    descbox = $('<div />', {id:'descBox',class:'box'})
     descbox.append('<a id="descBoxLink" />')
 
     descbox.append('<span id="iJednotka" />')
-    descbox.append('<p id="iPredkladatel" />')
+    // descbox.append('<p id="iPredkladatel" />')
     descbox.append('<p id="iResults" />')
     descbox.append('<p id="iExcel" />')
 
-    parent.append(descbox);
+    chartdiv.append(descbox);
+
+    storybox = $('<div />', {id:'storyBox',class:'box'});
+    storybox.html('<p>'+ storyText + '</p>')
+    chartdiv.append(storybox);
+
 
     return parent;
 }
@@ -341,12 +354,12 @@ function generateElementStructure(selector) {
 function createSelect2(parent) {
 
       controls = $('<div />').addClass('controls')
-      select = $('<select />', {id:'ddlSearch',class:'form-control'});
+      select = $('<select />', {id:'ddlSearch',class:'form-control',onchange: 'ddlChange()'});
       select.append('<option />')
       controls.append(select)
       // controls.append('<script type="text/javascript" src="controls.js"></script>')
       // $.getScript('control.js', function() {});
-  
+      controls.append($('<a id="rstBtn" class="button buttonPassive" onclick="RedrawMainApp()">Obnovit</a>'));
       parent.append(controls);
 
       function formatResult(node) {
@@ -355,9 +368,10 @@ function createSelect2(parent) {
       };
       
       $('#ddlSearch').select2({
-        placeholder: {id:'',text: 'Vyberte instituci ...'},
+        placeholder: {id:'',text: 'Vyhledejte pracoviště ...'},
         allowClear: true,
-        width: '520px',
+        closeOnSelect:true,
+        width: '85%',
         data: menudata,
         formatSelection: function(item) {
             return item.text
@@ -372,16 +386,34 @@ function createSelect2(parent) {
       
 }
 
-function DrawAllCharts() {
-    $('#mainchart').show();
-    $('#mainchart').append('<div id="mainApp" />')
-    DrawChart('#mainApp')
+function MeasureSlide() {
+    slideHeight = $('#app').height();
+    slideWidth = $('#app').width();
 }
 
+function DrawAllCharts() {
+    $('#mainchart').append('<div id="mainApp" class="chartDiv" />')
+    DrawChart('#mainApp',mainAppStory)
+}
 
-function DrawChart(selector) {
-    div = generateElementStructure(selector);
+function RedrawMainApp() {
+    usedfields = ['Zemědělské a veterinární vědy', 'Technické vědy', 'Humanitní vědy', 'Lékařské vědy','Přírodní vědy','Společenské vědy']
+    usedtypes = ['Akademie věd','Vysoké školy','Ostatní']
 
+    $('#mainApp').empty();
+    unselectAll();
+    $('#mainApp').hide();
+    DrawChart('#mainApp',mainAppStory)
+    $('#mainApp').fadeIn('slow')
+
+
+
+}
+function DrawChart(selector,storyText) {
+    MeasureSlide() 
+
+    div = generateElementStructure(selector,storyText);
+    
     sortMenudata();
     
     GenerateGlobals();
@@ -396,12 +428,14 @@ function DrawChart(selector) {
     DrawFieldLegend();
 
     DrawTypeLegend();
+
+    openDescBoxHelp();
 };
 
 function GenerateGlobals() {
   margin = {top:10,right:20,bottom:30,left:60},
-  width = 530 - margin.left - margin.right,
-  height = 500 - margin.top - margin.bottom;
+  width = (0.6*slideWidth) - margin.left - margin.right,
+  height = (0.75*slideHeight) - margin.top - margin.bottom;
 
   xScale = d3.scaleLinear()
       .range([0,width])

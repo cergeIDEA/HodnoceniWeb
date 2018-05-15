@@ -6,7 +6,7 @@ var menu = document.getElementById('menu');
 var fixedMenuPos = menu.offsetTop;
 var viewportHeight = window.innerHeight;
 
-var elids = ['firstpage','oCemMluvime','zJakychDat']
+var elids = ['firstpage','oCemMluvime','zJakychDat','app']
 var currentPos;
 var slideNum = 0;
 function generateTriggers() {
