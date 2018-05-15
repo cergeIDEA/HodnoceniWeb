@@ -2,7 +2,7 @@ var chartTitle = 'Články v predátorských a místních časopisech v různýc
 var yAxisLabel = 'Podíl výsledků v RIV publikovaných v predátorských časopisech'
 var xAxisLabel = 'Podíl výsledků v RIV publikovaných v místních časopisech'
 
-var mainAppStory = 'Graf ukazuje, jaká pracoviště své Scopusové články často publikují v predátorských (vlevo nahoře) a jaké v místních časopisech (vpravo dole). Pracoviště v levém dolním rohu do takových časopisů nic neposílají.'
+var mainAppStory = 'Graf ukazuje, jaká pracoviště své Scopusové články často publikují v <a class="modalLink" onclick="showModal(\'modPredatori\')">predátorských</a> (vlevo nahoře) a jaké v <a class="modalLink" onclick="showModal(\'modMistni\')">místních</a> časopisech (vpravo dole). Pracoviště v levém dolním rohu do takových časopisů žádné články neposílají.'
 
 var fields = ['Zemědělské a veterinární vědy', 'Technické vědy', 'Humanitní vědy', 'Lékařské vědy','Přírodní vědy','Společenské vědy']
 var usedfields = fields;
