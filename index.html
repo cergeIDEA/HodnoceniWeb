@@ -27,8 +27,8 @@
        <div id="content">
             <div id="firstpage" class="slide" style="border-bottom: none;" onload="">
                 <div id="headers">
-                    <h1 id="title">Jiný název než Institucionální hodnocení dle IDEA</h1>
-                    <h2 id="subtitle">Kdo je kdo v institucionálním hodnocení?</h2>
+                    <h1 id="title">Kdo nejvíce publikuje v predátorských a místních časopisech?</h1>
+                    <h2 id="subtitle">Bibliometrická analýza trochu jinak</h2>
                     <a href="https://idea.cerge-ei.cz/" target="_blank"><img src="IDEA.png" class="logo"/></a>
                     <a href="http://av21.avcr.cz/" target="_blank" ><img src="justStrategyWhite.png" class="logo"/></a>
                     <p>Vítek Macháček a Martin Srholec</p>
@@ -46,8 +46,12 @@
 
           <div id="oCemMluvime" class="slide">
             <div class="wrap">
-                <p>Každá vláda, každý manažer výzkumu se rád zaklíná <a class="modalLink" onclick="showModal('modExcelence')">excelencí</a> ve výzkumu. Špičkový výzkum totiž nekultivuje jen ducha, ale je také cestou k prosperitě. Od slov k činům ale může být poměrně daleko. Někteří akademici totiž výsledky své práce publikují v časopisech, jejichž vědecká excelence je snadno zpochybnitelná.</p>
-                <p> Výzkumníci IDEA ve svých  <a class="modalLink" onclick="showModal('modPrevious')">předchozích </a> pracích ukázali, že v tomto smyslu výrazně zaostáváme za západními státy.  Naše předchozí práce se ale více zaměřovaly na celé státy. Celostátní výsledky ale následně vrhají špatné světlo na výzkumníky, kteří se o kvalitní výzkum upřímně snaží a kterým se to i daří. I takových je v Česku dost</p>
+                <h3>Světový výzkum a ten zbytek</h3>
+                <p>Hodnocení výzkumu je obtížné, ale nezbytné, protože jinak se není podle čeho rozhodovat. Nikdy nebude dokonalé, stěží se zavděčí všem, ale to neznamená, že nemá smysl to zkoušet. </p>
+                <p><a class="modalLink" onclick="showModal('modKafemlejnek')">Kafemlejnek</a> napáchal v některých oborech velké škody, ale nová <a class="modalLink" onclick="showModal('modMetodika2017')">Metodika 2017+</a> se pouze pomalu rozbíhá. Navíc jsou zásadní problémy, kterými se i nový systém hodnocení řeší jen okrajově.</p>
+                <p>Nabízíme netradiční pohled. Namísto řazení časopisů podle citačního ohlasu vycházíme ze seznamů časopisů podezřelých z neférových praktik (tzv. <a class="modalLink" onclick="showModal('modPredatori')">predátorské</a> časopisy) a z rozložení jejich autorské základny (<a class="modalLink" onclick="showModal('modMistni')">místní</a> časopisy).</p>
+                <p>Poskytujeme další střípek do mozaiky toho, kdo u nás dělá jaký výzkum. Pozice dané fakulty či ústavu by měla zajímat nejen manažery výzkumu a tvůrce politik, ale i jejich zaměstnance a potažmo studenty. </p>
+                <p>Navazujeme na <a class="modalLink" onclick="showModal('modPrevious')" >předchozí IDEA studie</a> na tato témata.</p>
             </div>
             <!-- <a class="movefurther" src="#" onclick="MoveOn('oCemMluvime')"><img width="50" src="down-arrow.svg" /></a> -->
 
@@ -71,16 +75,21 @@
       </div>
 
       <div id= "modalWrap" class="modalBackground">
-        <div id="modExcelence" class="modal">
-            <!-- <div class="modalHeader">
-            </div> -->
+        <div id="modKafemlejnek" class="modal">
             <div class="close" onclick="hideModal()"><img src="closeIcon3.svg" /></div>
             <div  class="modalBody">
-                <h3>Excelence výzkumu</h3>
+                <h3>Kafemlejnek</h3>
                 <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
             </div>
-
         </div>
+        <div id="modMetodika2017" class="modal">
+                <div class="close" onclick="hideModal()"><img src="closeIcon3.svg" /></div>
+                <div  class="modalBody">
+                    <h3>Nová Metodika 2017+</h3>
+                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                </div>
+            </div>
+    
         <div id="modPrevious" class="modal">
             <div class="close" onclick="hideModal()"><img src="closeIcon3.svg" /></div>
             <div class="modalBody">
