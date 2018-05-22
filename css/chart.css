@@ -1,0 +1,178 @@
+
+.select2-results__options, .controls span{
+    font-size:14px !important;
+}
+
+#svg {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#svg text {
+    font-size: calc(12px + .3vh);
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #D9D9D9;
+  shape-rendering: crispEdges;
+}
+text .tick {fill: #D9D9D9; }
+
+.label {
+	fill: black;
+	text-anchor: middle;
+}
+circle {
+    cursor: pointer;
+}
+.dot {
+  z-index: 98;
+}
+.circleText {
+  fill:#D1D4D3;
+}
+
+div.tooltip {
+  position: absolute;
+  text-align: center;
+/*   width: 200px;
+  height: 60px;    */
+  padding: 2px;
+  /* font:12px sans-serif; */
+  color: #bb133e;
+  background: #E8EAE9;
+  border: 0px;
+  border-radius: 4px;
+  pointer-events: none;
+  padding:4px;
+  z-index: 99;
+}
+
+.helpline {
+	stroke: #D9D9D9;
+	shape-rendering: crispEdges;
+}
+.lineDesc {
+    fill: #D9D9D9;
+	text-anchor: middle;
+}
+
+.triangle {
+    fill:#E8EAE9;
+}
+
+.controls {
+    height:	40px;
+    position:relative;
+}
+
+.button {
+    cursor: pointer;
+    background-color: #DDD;
+    border: 2px solid #DDD;
+    color: white;
+    padding: 3px;  
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	font-size: 14px;
+    border-radius: 4px;
+    -webkit-transition-duration: 0.3s; /* Safari */
+    transition-duration: 0.3s;
+    width:100px;
+    position:relative;
+    left:10px;
+    text-align: center;
+    /* top:-28px; */
+}
+/* 
+.button:hover {
+	background-color: white;
+	color: #DDD;
+} */
+
+.buttonActive {
+    background-color: #BB133E;
+    border: 2px solid #BB133E;
+}
+
+.buttonActive:hover {
+    background-color: white;
+	color: #BB133E;
+
+}
+.legendDesc {
+    font-weight: bold;
+}
+.legend text{
+    cursor:pointer;
+}
+.legend circle{
+    cursor:pointer;
+    stroke-width:2px;
+}
+
+.legendPassive {
+    opacity:0.3;
+}
+
+.legendPassive circle{
+    fill-opacity:0.2;
+}
+
+.chartDiv {
+    position: relative;
+    width: 100%;
+    /* font-size: 1vw; */
+    padding-top:10vh;
+    /* background-color:white; */
+}
+
+.selected {
+	stroke:black;
+	stroke-width: 2px;
+}
+.unselected {
+	opacity: 0.2;
+}
+
+/* #storyBox {
+    margin-top:50px;
+    top:0%;
+    height:40%;
+	background-color:rgba(127,179,217,.3);
+ */
+/* #descBox {
+    top:55%;
+    height:40%;
+    background-color:rgba(221,221,221,.33);
+} */
+
+#helplogo {
+    /* position: absolute; */
+    /* bottom:10px; */
+    margin:auto;
+    width: 100%;
+    /* left:40%; */
+}
+#helplogo img {
+    margin: 15px;
+}
+/* 
+#rstBtn {
+    position: absolute;
+    display: block;
+    cursor: pointer;
+    width:10%;
+    border:0px;
+    color: #BB133E;
+    text-align: center;
+    left:90%;
+}
+ */
+#rstBtn:hover{
+    font-weight: bold;
+}
+
+

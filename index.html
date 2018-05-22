@@ -1,144 +1,212 @@
-﻿<html lang="cz-cs">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Šablona</title>
-      <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js" ></script> -->
-      <script type="text/javascript" src="jquery-3.1.1.js"></script>
-      <!-- <link href='https://fonts.googleapis.com/css?family=Nunito Sans' rel='stylesheet'> -->
-      <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
-      <link rel="stylesheet" href="w3.css">
-      <link rel="stylesheet" type="text/css" href="css.css">
+﻿<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" >
+        <title>Kdo nejvíce publikuje v predátorských a místních časopisech?</title>
 
-      <!-- App -->
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-      <script type="text/javascript" src="https://d3js.org/d3.v4.min.js" ></script>
-      <script type="text/javascript" src="institutions.js"></script>
-      <script type="text/javascript" src="ddldata.js"></script>
-      <script type="text/javascript" src="scatter.js"></script>
-      <script type="text/javascript" src="controls.js"></script>
+        <!-- External libraries and fonts -->
+        <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js" ></script> -->
+        <script type="text/javascript" src="thirdparty/jquery-3.1.1.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Nunito Sans' rel='stylesheet'>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+        <!-- <script type="text/javascript" src="https://d3js.org/d3.v4.min.js" ></script> -->
+        <script type="text/javascript" src="thirdparty/d3.min.js"></script>
+        <script type="text/javascript" src="thirdparty/jquery.waypoints.min.js"></script>
+        <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
 
-      <link rel="stylesheet" type="text/css" href="chart.css"></link>
 
-   </head>
+        <!-- Data -->
+        <script type="text/javascript" src="data/ddldata.js"></script>
+        <script type="text/javascript" src="data/institutions.js"></script>
 
-   <body onload="DrawAllCharts()">
-       <div id="content">
-            <div id="firstpage" class="slide" style="border-bottom: none;" onload="">
-                <div id="headers">
+        <!-- own scripts -->
+        <script type="text/javascript" src="my_js/charts.js"></script>
+        <script type="text/javascript" src="my_js/page.js"></script>
+        <script type="text/javascript" src="my_js/controls.js"></script>
+  
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="css/chart.css"></link>
+        <link rel="stylesheet" type="text/css" href="css/page.css"></link>
+
+    </head>
+    
+    <body onload="loadJS()">
+        <div id="everything">
+            <div id="intro" class="fix full90h fixactive">
+                <div class="content">
                     <h1 id="title">Kdo nejvíce publikuje v predátorských a místních časopisech?</h1>
                     <h2 id="subtitle">Bibliometrická analýza trochu jinak</h2>
-                    <a href="https://idea.cerge-ei.cz/" target="_blank"><img src="IDEA.png" class="logo"/></a>
-                    <a href="http://av21.avcr.cz/" target="_blank" ><img src="justStrategyWhite.png" class="logo"/></a>
+                    <a href="https://idea.cerge-ei.cz/" target="_blank"><img src="img/idea-white.svg" class="logo"/></a>
+                    <a href="http://av21.avcr.cz/" target="_blank" ><img src="img/justStrategyWhite.png" class="logo"/></a>
                     <p>Vítek Macháček a Martin Srholec</p>
                 </div>
-                <!-- <a class="movefurther" src="#" onclick="MoveOn('oCemMluvime')"><img width="50" src="down-arrow.svg" /></a> -->
+                <center><img src="img/down-arrow2.svg" onclick="MoveOn('oCemMluvime')" class='arrow' /></center>
             </div>
-        <div style="height: 80px;">
-            <div id="menu">
-                <a class="storyPast" onclick="MoveOn('firstpage')">Úvod</a>
-                <a id="moCemMluvime" onclick="MoveOn('oCemMluvime')">O čem mluvíme?</a>
-                <a id="mzJakychDat" onclick="MoveOn('zJakychDat')">Z jakých dat vycházíme?</a>
-                <a id="InteraktivniAplikace" onclick="MoveOn('app')">Interaktivní aplikace</a>
-            </div>
-        </div>
-
-          <div id="oCemMluvime" class="slide">
-            <div class="wrap">
-                <h3>Světový výzkum a ten zbytek</h3>
-                <p>Hodnocení výzkumu je obtížné, ale nezbytné, protože jinak se není podle čeho rozhodovat. Nikdy nebude dokonalé, stěží se zavděčí všem, ale to neznamená, že nemá smysl to zkoušet. </p>
-                <p><a class="modalLink" onclick="showModal('modKafemlejnek')">Kafemlejnek</a> napáchal v některých oborech velké škody, ale nová <a class="modalLink" onclick="showModal('modMetodika2017')">Metodika 2017+</a> se pouze pomalu rozbíhá. Navíc jsou zásadní problémy, kterými se i nový systém hodnocení řeší jen okrajově.</p>
-                <p>Nabízíme netradiční pohled. Namísto řazení časopisů podle citačního ohlasu vycházíme ze seznamů časopisů podezřelých z neférových praktik (tzv. <a class="modalLink" onclick="showModal('modPredatori')">predátorské</a> časopisy) a z rozložení jejich autorské základny (<a class="modalLink" onclick="showModal('modMistni')">místní</a> časopisy).</p>
-                <p>Poskytujeme další střípek do mozaiky toho, kdo u nás dělá jaký výzkum. Pozice dané fakulty či ústavu by měla zajímat nejen manažery výzkumu a tvůrce politik, ale i jejich zaměstnance a potažmo studenty. </p>
-                <p>Navazujeme na <a class="modalLink" onclick="showModal('modPrevious')" >předchozí IDEA studie</a> na tato témata.</p>
-            </div>
-            <!-- <a class="movefurther" src="#" onclick="MoveOn('oCemMluvime')"><img width="50" src="down-arrow.svg" /></a> -->
-
-          </div>
-
-          <div id="zJakychDat" class="slide">
-              <div class="wrap">
-                <h3>Z jakých dat vycházíme?</h3>
-                <p>Hlavním zdrojem informací jsou vědecké články, které instituce nahlásily do systému RIV. Na jejich základě pak tyto instituce získaly část svých prostředků z veřejného rozpočtu a tudíž by měly obsahovat to nejlepší, co na dané instituci vzniklo. </p>
-                <p>Data o mezinárodní orientaci jednotlivých časopisů pochází z bibliometrické databáze Scopus a seznam predátorských časopisů čerpáme z naší předchozí studie na toto téma. </p>
-                <p>Aby byly obě databáze vzájemně co nejlépe porovnatelné, byla data očištěna tak aby obsahovala pouze články indexované v databázi Scopus. </p>
-              </div>
-              <!-- <a class="movefurther" src="#" onclick="MoveOn('oCemMluvime')"><img width="50" src="down-arrow.svg" /></a> -->
-          </div>
-
-          <div id="app" class="slide">
-              <div id="mainchart"class="wrap">
-                  <h3>Interaktivní aplikace</h3>
-              </div>
-          </div>
-      </div>
-
-      <div id= "modalWrap" class="modalBackground">
-        <div id="modKafemlejnek" class="modal">
-            <div class="close" onclick="hideModal()"><img src="closeIcon3.svg" /></div>
-            <div  class="modalBody">
-                <h3>Kafemlejnek</h3>
-                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-            </div>
-        </div>
-        <div id="modMetodika2017" class="modal">
-                <div class="close" onclick="hideModal()"><img src="closeIcon3.svg" /></div>
-                <div  class="modalBody">
-                    <h3>Nová Metodika 2017+</h3>
-                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+            <div id="empty-intro" class="fixempty full90h"></div>
+            <div id="menu" class="floaty">
+                <div class="content">
+                    <center>
+                        <a class="storyPast" onclick="MoveOn('empty-intro')">Úvod</a>
+                        <a id="moCemMluvime" onclick="MoveOn('oCemMluvime')">O čem mluvíme?</a>
+                        <a id="mapp" onclick="MoveOn('empt-app')">Interaktivní aplikace</a>
+                        <a id="mLifeSocial" onclick="MoveOn('LifeSocial')">Přírodní a společenské vědy</a>
+                        <a id="mConclusion" onclick="MoveOn('conclusion')">Závěrem</a>
+                    </center>
                 </div>
             </div>
+            <div id="menuempty"></div>
+            <div id="oCemMluvime" class="flow">
+                <div class="content">
+                    <h3>Světový výzkum a ten zbytek</h3>
+                    <p>Hodnocení výzkumu je obtížné, ale nezbytné, protože jinak se není podle čeho rozhodovat. Nikdy nebude dokonalé, stěží se zavděčí všem, ale to neznamená, že nemá smysl to zkoušet. </p>
+                    <p><a class="modalLink" onclick="showModal('modKafemlejnek')">Kafemlejnek</a> napáchal v některých oborech velké škody, ale nová <a class="modalLink" onclick="showModal('modMetodika2017')">Metodika 2017+</a> se pouze pomalu rozbíhá. Navíc jsou zásadní problémy, kterými se i nový systém hodnocení řeší jen okrajově.</p>
+                    <p>Nabízíme netradiční pohled. Namísto řazení časopisů podle citačního ohlasu vycházíme ze seznamů časopisů podezřelých z neférových praktik (tzv. <a class="modalLink" onclick="showModal('modPredatori')">predátorské</a> časopisy) a z rozložení jejich autorské základny (<a class="modalLink" onclick="showModal('modMistni')">místní</a> časopisy).</p>
+                    <p>Poskytujeme další střípek do mozaiky toho, kdo u nás dělá jaký výzkum. Pozice dané fakulty či ústavu by měla zajímat nejen manažery výzkumu a tvůrce politik, ale i jejich zaměstnance a potažmo studenty. </p>
+                    <p>Navazujeme na <a class="modalLink" onclick="showModal('modPrevious')" >předchozí IDEA studie</a> na tato témata.</p>    
+                </div>
+            </div>
+            <div id="zJakychDat" class="flow">
+                <div class="content">
+                    <h3>Z jakých dat vycházíme?</h3>
+                    <p>Hlavním zdrojem informací jsou vědecké články, které instituce nahlásily do systému RIV. Na jejich základě pak tyto instituce získaly část svých prostředků z veřejného rozpočtu a tudíž by měly obsahovat to nejlepší, co na dané instituci vzniklo. </p>
+                    <p>Data o mezinárodní orientaci jednotlivých časopisů pochází z bibliometrické databáze Scopus a seznam predátorských časopisů čerpáme z naší předchozí studie na toto téma. </p>
+                    <p>Aby byly obě databáze vzájemně co nejlépe porovnatelné, byla data očištěna tak aby obsahovala pouze články indexované v databázi Scopus. </p>
+                </div>
+            </div>
+            <div id="app" class="fix fullscreen">
+                <div class="content">
+
+                </div>
+            </div>
+            <div id="empt-app"class="fixempty fullscreen"></div>
+            <div id="dyk_wrap" class="fullscreen">
+                <div class="content">
+                    <div id="didyouknow" class="box helpbox">
+                        <h4>Nápověda</h4>
+                        <p>K dispozici jsou i podrobnosti o jednotlivých pracovištích a jejich sklonu k publikování v <a class="modalLink" onclick="showModal('modMistni')">místních</a> a <a class="modalLink" onclick="showModal('modPredatori')">predátorských</a> časopisech. Zobrazit je lze buďto vyhledáním ve vyhledávacím poli nebo kliknutím na konkrétní bublinu.</p>
+                        <p>Také pomocí legendy lze zobrazovat a skrývat obory a typy institucí.</p>
+                        <p>Pro každé pracoviště je též možné si stáhnout kompletní seznam relevantních článků.</p>
+                    </div>
+                </div>
+            </div>
+            <div id="LifeSocial" class="flow">
+                <div class="content">
+                    <h3>Společenské vs. přírodní vědy</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer pellentesque quam vel velit. In sem justo, commodo ut, suscipit at, pharetra vitae, orci. Quisque porta. Nam quis nulla. Fusce tellus. Morbi imperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, et sollicitudin sem purus in lacus. Duis risus. In rutrum. Proin mattis lacinia justo. Morbi leo mi, nonummy eget tristique non, rhoncus non leo. Maecenas lorem. Aenean placerat. In convallis. Curabitur bibendum justo non orci. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                    <p>Pellentesque arcu. Etiam bibendum elit eget erat. Maecenas fermentum, sem in pharetra pellentesque, velit turpis volutpat ante, in pharetra metus odio a lectus. Et harum quidem rerum facilis est et expedita distinctio. Integer imperdiet lectus quis justo. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Maecenas sollicitudin. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Nunc dapibus tortor vel mi dapibus sollicitudin. Praesent dapibus. Aenean fermentum risus id tortor. Nulla pulvinar eleifend sem. Curabitur vitae diam non enim vestibulum interdum. In laoreet, magna id viverra tincidunt, sem odio bibendum justo, vel imperdiet sapien wisi sed libero. Etiam neque. Etiam dictum tincidunt diam.                </p>
+                </div>
+            </div>
+            <div id="empt-app"class="fixempty fullscreen"></div>
+            <div id="conclusion" class="flow">
+                <div class="content">
+                    <h3>Pár slov závěrem</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer pellentesque quam vel velit. In sem justo, commodo ut, suscipit at, pharetra vitae, orci. Quisque porta. Nam quis nulla. Fusce tellus. Morbi imperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, et sollicitudin sem purus in lacus. Duis risus. In rutrum. Proin mattis lacinia justo. Morbi leo mi, nonummy eget tristique non, rhoncus non leo. Maecenas lorem. Aenean placerat. In convallis. Curabitur bibendum justo non orci. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                    <p>Pellentesque arcu. Etiam bibendum elit eget erat. Maecenas fermentum, sem in pharetra pellentesque, velit turpis volutpat ante, in pharetra metus odio a lectus. Et harum quidem rerum facilis est et expedita distinctio. Integer imperdiet lectus quis justo. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Maecenas sollicitudin. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Nunc dapibus tortor vel mi dapibus sollicitudin. Praesent dapibus. Aenean fermentum risus id tortor. Nulla pulvinar eleifend sem. Curabitur vitae diam non enim vestibulum interdum. In laoreet, magna id viverra tincidunt, sem odio bibendum justo, vel imperdiet sapien wisi sed libero. Etiam neque. Etiam dictum tincidunt diam.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer pellentesque quam vel velit. In sem justo, commodo ut, suscipit at, pharetra vitae, orci. Quisque porta. Nam quis nulla. Fusce tellus. Morbi imperdiet, mauris ac auctor dictum, nisl ligula egestas nulla, et sollicitudin sem purus in lacus. Duis risus. In rutrum. Proin mattis lacinia justo. Morbi leo mi, nonummy eget tristique non, rhoncus non leo. Maecenas lorem. Aenean placerat. In convallis. Curabitur bibendum justo non orci. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                    <p>Pellentesque arcu. Etiam bibendum elit eget erat. Maecenas fermentum, sem in pharetra pellentesque, velit turpis volutpat ante, in pharetra metus odio a lectus. Et harum quidem rerum facilis est et expedita distinctio. Integer imperdiet lectus quis justo. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Maecenas sollicitudin. Mauris dolor felis, sagittis at, luctus sed, aliquam non, tellus. Nunc dapibus tortor vel mi dapibus sollicitudin. Praesent dapibus. Aenean fermentum risus id tortor. Nulla pulvinar eleifend sem. Curabitur vitae diam non enim vestibulum interdum. In laoreet, magna id viverra tincidunt, sem odio bibendum justo, vel imperdiet sapien wisi sed libero. Etiam neque. Etiam dictum tincidunt diam.</p>
+                </div>
+            </div>
+            <div id="thanks" class="fix fullscreen">
+                <div class="content">
+                    <h1 id="title">Děkujeme za pozornost!</h1>
+                    <h2>Zpět na <a class="modalLink" onclick="MoveOn('empt-app')">Interaktivní aplikaci</a></h2>
+
+                    <a href="https://idea.cerge-ei.cz/" target="_blank"><img src="img/IDEA.png" class="logo"/></a>
+                    <a href="http://av21.avcr.cz/" target="_blank" ><img src="img/justStrategyWhite.png" class="logo"/></a>
+                    <h2 id="subtitle">Pokud se Vám to líbilo, nezapomeňte se o to podělit s ostatními!</h2>
+
+                    <div id="shares">
+                        <!-- <a onclick="fb_share()"><img src="img/fb.svg" /></a> -->
+                        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.irozhlas.cz%2Fzpravy-domov%2Fmartin-bugner-twitter-invalidni-vozik-sbirka-transparentni-ucet_1805211955_hm" ><img src="img/fb.svg" /></a>
+                        <a target="_blank" href="https://twitter.com/intent/tweet?text=Hello%20World"><img src="img/twitter2.svg" /></a>
+                        <a><img src="img/linkedin.svg" /></a>
+                        <a><img src="img/mail.svg" /></a>
+                        <a><img src="img/link.svg" /></a>
+                    </div>
+                </div>
+            </div>
+            <div class="fixempty fullscreen"></div>
+
+            
+        <div id= "modalWrap" class="modalBackground">
+            <div id="modKafemlejnek" class="modal">
+                <div  class="modalBody">
+                    <h3>Kafemlejnek</h3>
+                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                </div>
+                <center><a onclick="hideModal()" class="button buttonActive">Skrýt</a></center>
+            </div>
+            <div id="modMetodika2017" class="modal">
+                    <div  class="modalBody">
+                        <h3>Nová Metodika 2017+</h3>
+                        <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                    </div>
+                    <center><a onclick="hideModal()" class="button buttonActive">Skrýt</a></center>
+                </div>
+        
+            <div id="modPrevious" class="modal">
+                <div class="close" onclick="hideModal()"><img src="img/closeIcon3.svg" /></div>
+                <div class="modalBody">
+                    <h3>Předchozí studie IDEA</h3>
+                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                    <center><a onclick="hideModal()" class="button buttonActive">Skrýt</a></center>
+                </div>
+            </div>
+
+            <div id="modPredatori" class="modal">
+                <div class="modalBody">
+                    <h3>Predátorské časopisy</h3>
+                    <p>Tzv. predátorské časopisy zneužívají placený open-access přístup k publikaci vědy a akademikům za poplatek nabízí publikaci článků bez pořádného recenzního řízení. Tyto časopisy mají k profesionalitě velmi daleko a pro akademiky by měly představovat jakousi “no-go zónu“. Spíše než kariérní postup by po publikaci v těchto časopisech měla následovat ostuda. Pokud se na dané instituci v takových časopisech publikuje v masovém měřítku, je zjevné, že hodnocení vědy v této instituci selhává.</p>
+                    <p>Seznam predátorských časopisů vychází ze slavného blogu Jeffrey Bealla (verze z dubna 2016) a původně byl zpracován ve studii IDEA <a href="https://idea.cerge-ei.cz/zpravy/predatorske-casopisy-ve-scopusu" target="_blank">Predátorské časopisy ve Scopusu</a>, kde je také popsán podrobný způsob jeho získání.  Seznam predátorských časopisů použitý v této studii je k dispozici <a>zde</a>.</p> 
+                    <p>Beallovy seznamy jsou často kritizovány za přílišnou subjektivitu – rozhodnutí o zařazení časopisu často není výsledkem rigidní analýzy, ale osobním názorem jednoho knihovníka v Coloradu, které není podloženo solidními, porovnatelnými a ověřenými daty. S touto kritikou lze jen souhlasit, a proto vznikla studie IDEA Pod pokličkou Beallova seznamu. Podle ní výrazná většina časopisů na Beallově seznamu pro akademickou komunitu skutečně příliš relevantní není, ale existují výjimky jako vydavatelství Frontiers. Jejich zařazení v akademické obci vyvolalo vlnu nevole a tak jejich časopisy nebyly pro potřeby této studie zařazeny jako predátorské. </p>
+                    <!-- TODO PRIDAT SEZNAM PREDATORSKYCH CASOPISU!!!! -->
+                    <center><a onclick="hideModal()" class="button buttonActive">Skrýt</a></center>
+                </div>
+            </div>
+
+            <div id="modMistni" class="modal">
+                <div class="modalBody">
+                    <h3>Místní časopisy</h3>
+                    <p>Vědecké časopisy jsou vydávány proto, aby usnadnily sdílení vědeckých výsledků. Jejich cílem by tak mělo být rozšiřovat své výsledky mezi nejširší okruh čtenářů. Místním časopisům se tyto cíle naplňovat nedaří a podezřele často publikují články od autorů úzkého okruhu. Pokud do časopisu mezinárodní autoři nepřispívají, s nejvyšší pravděpodobností ho ani nečtou – a to ani v případě, že je publikován v angličtině. Instituce, jejichž autoři ve velkém publikují v místních časopisech, tak selhávají ve snaze svůj výzkum předávat co nejširšímu publiku.</p>
+                    <p>Za místní časopisy považujeme všechny časopisy ve Scopusu, u nichž alespoň třetina článků (typ Articles) má alespoň jednoho z autorů České republiky nebo ze Slovenska. Seznam těchto časopisů je k dispozici zde.</p>
+                    <p>Pravidlo, že špičkový výzkum by měl být mezinárodní, podle nás platí s výjimkou humanitních oborů. Českou historii, český jazyk a další lokálně zaměřené otázky mohou samozřejmě být legitimně studovány skrze lokální výzkumníky. Nicméně jsme přesvědčeni, že ve většině společenských věd již toto pravidlo neplatí. Drtivá většina ekonomických, společenských, ale i právních otázek jsou relevantní nejen pro české akademické publikum, ale také pro publikum světové a příslušní výzkumníci by se měly vztahovat zejména k akademickému diskurzu probíhajícím v zahraničí.</p>
+                    <p>Je dobré mít na paměti malou metodologickou chybu. Články, které vznikly při spolupráci mezi českými a slovenskými vědci, jsou při výpočtu započítány několikrát. Časopisy, které často publikují česko-slovenské spolupráce tak mohou působit jako místněji zaměřené než reálně jsou. Je ale jen těžko představitelné, že by tento problém vedl ke zcela odlišnému výsledku místního zaměření instituce. </p>
+                    <center><a onclick="hideModal()" class="button buttonActive">Skrýt</a></center>
+                </div>
+            </div>
+            <div id="modPracoviste" class="modal">
+                <div class="modalBody">
+                    <h3>Pracoviště a organizace</h3>
+                    <p>Rozlišujeme mezi dvěma druhy institucí výzkumu a vývoje - podrobnějšími <i>pracovišti</i> a obecnějšími <i>organizacemi</i>.</p>
+                    <p><strong>Pracoviště</strong> je nejnižší jednotka, která je reportována do RIV. V případě vysokých škol jde nejčastěji o fakulty, v případě Akademie věd o jednotlivé ústavy. Na této úrovni jsou často také jednotlivé soukromé firmy či státní instituce.</p>
+                    <p><strong>Organizace</strong> je naopak zastřešující institucí - např. univerzita nebo Akademie věd. V případě soukromých firem jde nejčastěji o poskytovatele dotační podpory, tedy často ministerstva a další. </p>
+                    <center><a onclick="hideModal()" class="button buttonActive">Skrýt</a></center>
+                </div>
+            </div>
+            <div id="modRozliseni" class="modal">
+                    <div class="close" onclick="hideModal()"><img src="img/closeIcon3.svg" /></div>
+                    <div class="modalBody">
+                        <h3>Nízké rozlišení</h3>
+                        <p>Omlouváme se, ale tato interaktivní apliakce je optimalizována pro rozlišení alespoň 1200x600. Studii doporučujeme zobrazit na stolním počítači či notebooku. Případně zkuste prohlížeč maximalizovat.</p>
+                        <p>Zkuste si zkopírovat internetovou adresu!</p> 
+                        <!-- TODO copy adress -->
+                        <center><a onclick="hideModal()" class="button buttonActive">Skrýt</a></center>
+                    </div>
+                </div>
     
-        <div id="modPrevious" class="modal">
-            <div class="close" onclick="hideModal()"><img src="closeIcon3.svg" /></div>
-            <div class="modalBody">
-                <h3>Předchozí studie IDEA</h3>
-                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-                <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-            </div>
-        </div>
-
-        <div id="modPredatori" class="modal">
-            <div class="close" onclick="hideModal()"><img src="closeIcon3.svg" /></div>
-            <div class="modalBody">
-                <h3>Predátorské časopisy</h3>
-                <p>Tzv. predátorské časopisy zneužívají placený open-access přístup k publikaci vědy a akademikům za poplatek nabízí publikaci článků bez pořádného recenzního řízení. Tyto časopisy mají k profesionalitě velmi daleko a pro akademiky by měly představovat jakousi “no-go zónu“. Spíše než kariérní postup by po publikaci v těchto časopisech měla následovat ostuda. Pokud se na dané instituci v takových časopisech publikuje v masovém měřítku, je zjevné, že hodnocení vědy v této instituci selhává.</p>
-                <p>Seznam predátorských časopisů vychází ze slavného blogu Jeffrey Bealla (verze z dubna 2016) a původně byl zpracován ve studii IDEA <a href="https://idea.cerge-ei.cz/zpravy/predatorske-casopisy-ve-scopusu" target="_blank">Predátorské časopisy ve Scopusu</a>, kde je také popsán podrobný způsob jeho získání.  Seznam predátorských časopisů použitý v této studii je k dispozici <a>zde</a>.</p> 
-                <p>Beallovy seznamy jsou často kritizovány za přílišnou subjektivitu – rozhodnutí o zařazení časopisu často není výsledkem rigidní analýzy, ale osobním názorem jednoho knihovníka v Coloradu, které není podloženo solidními, porovnatelnými a ověřenými daty. S touto kritikou lze jen souhlasit, a proto vznikla studie IDEA Pod pokličkou Beallova seznamu. Podle ní výrazná většina časopisů na Beallově seznamu pro akademickou komunitu skutečně příliš relevantní není, ale existují výjimky jako vydavatelství Frontiers. Jejich zařazení v akademické obci vyvolalo vlnu nevole a tak jejich časopisy nebyly pro potřeby této studie zařazeny jako predátorské. </p>
-                <!-- TODO PRIDAT SEZNAM PREDATORSKYCH CASOPISU!!!! -->
-            </div>
-        </div>
-
-        <div id="modMistni" class="modal">
-            <div class="close" onclick="hideModal()"><img src="closeIcon3.svg" /></div>
-            <div class="modalBody">
-                <h3>Místní časopisy</h3>
-                <p>Vědecké časopisy jsou vydávány proto, aby usnadnily sdílení vědeckých výsledků. Jejich cílem by tak mělo být rozšiřovat své výsledky mezi nejširší okruh čtenářů. Místním časopisům se tyto cíle naplňovat nedaří a podezřele často publikují články od autorů úzkého okruhu. Pokud do časopisu mezinárodní autoři nepřispívají, s nejvyšší pravděpodobností ho ani nečtou – a to ani v případě, že je publikován v angličtině. Instituce, jejichž autoři ve velkém publikují v místních časopisech, tak selhávají ve snaze svůj výzkum předávat co nejširšímu publiku.</p>
-                <p>Za místní časopisy považujeme všechny časopisy ve Scopusu, u nichž alespoň třetina článků (typ Articles) má alespoň jednoho z autorů České republiky nebo ze Slovenska. Seznam těchto časopisů je k dispozici zde.</p>
-                <p>Pravidlo, že špičkový výzkum by měl být mezinárodní, podle nás platí s výjimkou humanitních oborů. Českou historii, český jazyk a další lokálně zaměřené otázky mohou samozřejmě být legitimně studovány skrze lokální výzkumníky. Nicméně jsme přesvědčeni, že ve většině společenských věd již toto pravidlo neplatí. Drtivá většina ekonomických, společenských, ale i právních otázek jsou relevantní nejen pro české akademické publikum, ale také pro publikum světové a příslušní výzkumníci by se měly vztahovat zejména k akademickému diskurzu probíhajícím v zahraničí.</p>
-                <p>Je dobré mít na paměti malou metodologickou chybu. Články, které vznikly při spolupráci mezi českými a slovenskými vědci, jsou při výpočtu započítány několikrát. Časopisy, které často publikují česko-slovenské spolupráce tak mohou působit jako místněji zaměřené než reálně jsou. Je ale jen těžko představitelné, že by tento problém vedl ke zcela odlišnému výsledku místního zaměření instituce. </p>
-            </div>
-        </div>
-        <div id="modPracoviste" class="modal">
-            <div class="close" onclick="hideModal()"><img src="closeIcon3.svg" /></div>
-            <div class="modalBody">
-                <h3>Pracoviště a organizace</h3>
-                <p>Rozlišujeme mezi dvěma druhy institucí výzkumu a vývoje - podrobnějšími <i>pracovišti</i> a obecnějšími <i>organizacemi</i>.</p>
-                <p><strong>Pracoviště</strong> je nejnižší jednotka, která je reportována do RIV. V případě vysokých škol jde nejčastěji o fakulty, v případě Akademie věd o jednotlivé ústavy. Na této úrovni jsou často také jednotlivé soukromé firmy či státní instituce.</p>
-                <p><strong>Organizace</strong> je naopak zastřešující institucí - např. univerzita nebo Akademie věd. V případě soukromých firem jde nejčastěji o poskytovatele dotační podpory, tedy často ministerstva a další. </p>
-            </div>
         </div>
     </div>
-   </body>
-   <script type="text/javascript" src="script.js"></script>
-   <script type="text/javascript" src="controls.js"></script>
+    </body>
+
+
 </html>
