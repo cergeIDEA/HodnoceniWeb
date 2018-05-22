@@ -108,8 +108,8 @@ function getSizes() {
     sizes.menu.height = $('#menu').height();
 
     sizes.chart = {};
-    sizes.chart.height = 0.8*sizes.screen.height;
-    sizes.chart.width = 0.8*sizes.screen.height;// +50;
+    sizes.chart.height = 0.7*sizes.screen.height;
+    sizes.chart.width = 0.7*sizes.screen.height;// +50;
 
 }
 

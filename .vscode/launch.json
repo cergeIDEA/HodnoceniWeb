@@ -8,15 +8,15 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "CERGE desktop",
-            "file": "C:/Users/vmachac/Dropbox/Hugo/HodnoceniWeb/index.html",
+            "name": "Dell Ntb",
+            "file": "C:/Users/vitekzkytek/Dropbox/Hugo/HodnoceniWeb/index.html",
             "webRoot": "${workspaceFolder}"
         },
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Dell ntb",
-            "file": "C:/Users/vitekzkytek/Dropbox/Hugo/HodnoceniWeb/index.html",
+            "name": "CERGE desktop",
+            "file": "C:/Users/vmachac/Dropbox/Hugo/HodnoceniWeb/index.html",
             "webRoot": "${workspaceFolder}"
         }
 

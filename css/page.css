@@ -8,6 +8,7 @@ body {
 }
 #everything {
     position: relative;
+    background-color:white;
     width:100%;
     min-width:1200px;
     margin:auto;
@@ -16,6 +17,10 @@ body {
     position: relative;
     width:1000px;
     margin:auto;
+}
+
+.bg-grey {
+    background-color:#E8EAE9;
 }
 
 .logo {
@@ -47,7 +52,7 @@ h3{
     position:fixed;
     overflow-x:auto;
     z-index: 1;
-    background-color: #d1d4d3;
+    background-color:#E8EAE9;
     opacity:0;
 }
 .fixactive {
@@ -75,6 +80,7 @@ h3{
 .flow {
     position:relative;
     width:100%;
+    margin:auto;
     z-index: 2;
     background-color: white;
     padding-top:50px;
@@ -86,14 +92,14 @@ h3{
     padding-top:15px;
     z-index: 5;
     width:100%;
-    height:7vh;
+    height:5vh;
     background-color:white;
 }
 #menuempty {
     display:none;
     padding-top:15px;
     width: 100%;
-    height: 7vh;
+    height: 5vh;
 }
 
 
@@ -162,9 +168,6 @@ h3{
 
 /* ID SPECIFIC */
 #intro {
-    /* opacity: 0.8; */
-    /* background-color: rgba(127,179,217,.33); */
-    background-color:#E10E49;
     background-color:#BB133E;
     text-align:center;
     padding-top:10vh;
@@ -183,7 +186,6 @@ h3{
 }
 
 #thanks {
-    /* opacity: 0.8; */
     background-color:#E8EAE9;
     text-align:center;
     padding-top:13vh;
@@ -198,7 +200,7 @@ h3{
 }
 
 #app {
-    background-color: white;
+    background-color:rgba(127,179,217,.3);
 }
 
 #dyk_wrap {
