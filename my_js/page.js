@@ -33,6 +33,7 @@ function waypointing() {
 
     waypoints = $('#menu').waypoint(function(direction) {
         if(direction === 'down') {
+            $('#everything').append($('<div class="stickyshadow"></div>'));
             $('#menu').addClass('sticky');
             $('#menu').removeClass('floaty');
             $('#menuempty').css('display','block')
@@ -40,6 +41,7 @@ function waypointing() {
             $('#menu').addClass('floaty');
             $('#menu').removeClass('sticky');
             $('#menuempty').css('display','none')
+            $('.stickyshadow').remove();
         }});
         
     waypoints = $('#oCemMluvime').waypoint({handler:function(direction) {
