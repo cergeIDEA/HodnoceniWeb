@@ -78,6 +78,7 @@ function ddlChange(selector) {
                 {
                     value.selected = 1;
                 });
+            descBoxOrg( $(selector + ' #ddlSearch').select2('data')[0].text)
         }
          else {
             if(includedInsts.includes(id)) {
@@ -86,7 +87,7 @@ function ddlChange(selector) {
                 openDescBox(selector,d);
             }else {
                 d = excludedInsts[id];
-                openDescBox(selector,d);
+                openDescBox(selector,d,false);
             }
         }
     }
@@ -115,27 +116,23 @@ function SelectSinglePoint(selector, d) {
 }
 
 function openDescBox(selector,d,IsAvailable=true){
-    $('#descbox').remove();
-    div = $('<div />',{id:'descbox',class:'box detailbox'})
+    div = $('#descbox')
+    div.hide();
+    div.empty();
     if (IsAvailable) {
         div = descBoxData(div,d);
     }
     else {
         div = descBoxNA(div,d);
     }
-    div.append($('<img />',{id:'closedescbox',onclick:"closeDescBox('"+selector +"')",src:"img/closeIcon3.svg"}))
-    $(selector).append(div)
-    $(selector +' #descbox').css({left:$('#didyouknow').position().left,top:$(selector + ' #chart').position().top})
-
-    $('#descbox').fadeIn(400);
+    div.fadeIn('fast');
 }
 
 function descBoxData(div,d) {
     div = div.append('<p><strong>' + d.Jednotka_name + '</strong> (' + d.Predkladatel_long + ')</p>')
     div = div.append('<p>V letech 2011 - 2015 instituce do RIV přihlásila celkem ' + d.Total + ' výsledků. Z nich ' + d.Czech + ' vyšlo v místních a dalších ' + d.Predatory + ' v predátorských časopisech</p>')
-    div = div.append('<p>Ke stažení je k dispozici seznam <a href="xls/'+ d.JEDNOTKA +'_Local.xlsx">místních</a>, <a href="xls/'+ d.JEDNOTKA +'_Predatory.xlsx">predátorských</a> a i <a href="xls/'+ d.JEDNOTKA +'_All.xlsx">všech</a> výsledků přihlášených do RIV.</p>')     
+    div = div.append('<p>Stáhněte si seznam článků v <a href="xls/'+ d.JEDNOTKA +'_Predatory.xlsx">predátorských</a> a <a href="xls/'+ d.JEDNOTKA +'_Local.xlsx">místních</a> časopisech nebo <a href="xls/'+ d.JEDNOTKA +'_All.xlsx">všech</a> článků zařazených do analýzy.</p>')     
     return div
-    // TODO nestaci bez vraceni divu?
 }
 
 function descBoxNA(div) {
@@ -144,8 +141,23 @@ function descBoxNA(div) {
     return div
 }
 
+function descBoxOrg(org) {
+    div = $('#descbox')
+    div.hide();
+    div.empty();
 
-function closeDescBox(selector) {
-    $('#descbox').remove();
+    div = div.append('<p><strong>' + org + '</strong></p>')
+    div.fadeIn('fast');
+
 }
 
+function descBoxDefault() {
+    div = $('#descbox')
+    div.hide();
+    div.empty();
+    div.append('<p>Kliknutím na legendu <strong>zobrazíte či skryjete</strong> různé obory a typy pracovišť</p>')
+    div.append('<p>Pro podrobnosti <strong>klikněte</strong> na jednotlivý bod či <strong>vyhledejte</strong> konkrétní pracoviště podle názvu v roletkovém menu nad grafem.</p>')
+    div.append('<p>Za vybrané pracoviště si <strong>stáhněte</strong> seznam článků v predátorských, místních nebo všech článích zařazených do analýzy.</p>')
+
+    div.fadeIn('fast')
+}

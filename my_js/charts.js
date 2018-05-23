@@ -3,7 +3,8 @@ var xAxisLabel = 'Podíl článků v místních časopisech'
 
 var data = {};
 legendTexts = {
-    field: ['Zemědělské vědy', 'Technické vědy', 'Humanitní vědy', 'Lékařské vědy','Přírodní vědy','Společenské vědy'],
+    // field: ['Zemědělské vědy', 'Technické vědy', 'Humanitní vědy', 'Lékařské vědy','Přírodní vědy','Společenské vědy'],
+    field: ['Přírodní vědy','Technické vědy','Lékařské vědy','Zemědělské vědy','Společenské vědy','Humanitní vědy'],
     types: ['Akademie věd','Vysoké školy','Ostatní']
 }
 
@@ -41,6 +42,8 @@ function DrawChart(selector){
 
     DrawData(selector);
 
+    descBoxDefault();
+
 
 };
 function Redraw(selector,showdefault=true,fadeIn=true) {
@@ -53,6 +56,7 @@ function Redraw(selector,showdefault=true,fadeIn=true) {
     unselectAll(selector);
     $(selector).hide();
     DrawChart(selector)
+
     if(fadeIn) {
         $(selector).fadeIn('slow');
     } else {
@@ -88,6 +92,9 @@ function generateElementStructure(selector) {
 
 
     $('#didyouknow').css('left',sizes.chart.width + 50)
+    $('#descbox').css('left',sizes.chart.width + 50)
+    $('#resbox').css('left',sizes.chart.width - 100)
+
 
 }
 

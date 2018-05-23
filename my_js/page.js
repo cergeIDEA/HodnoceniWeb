@@ -6,18 +6,20 @@ var waypoints;
 function loadJS() {
 
     sortMenudata();
-
-    waypoints = waypointing();
-    
+            
     getSizes();
 
     DrawAllCharts();
 
+    waypoints = waypointing();
+
     checkResolution();
+
 
 }
 
 function checkResolution() {
+
     w = $(window).width()
     if (w<1201) {
         showModal('modRozliseni')
@@ -29,8 +31,20 @@ function waypointing() {
         $('.fixactive').removeClass('fixactive');
         $(selector).addClass('fixactive');
     };
-    
 
+    function fixBox(selector,parent,target,toppos) {
+        element = $(parent+ ' ' +selector).detach();
+        $(target).append(element)
+        $(target  + ' ' + selector).css({top:toppos,'box-shadow':'0 0 0 0'})
+    }
+
+    function floatBox(selector,parent,target) {
+        element = $(parent + ' ' + selector).detach();
+        $(target).append(element)
+        $(element).css({top:'0px','box-shadow': '0px 0px 20px 4px #d1d4d3'})
+    }
+    
+    // fixing menu and adding shadow 
     waypoints = $('#menu').waypoint(function(direction) {
         if(direction === 'down') {
             $('#everything').append($('<div class="stickyshadow"></div>'));
@@ -65,31 +79,80 @@ function waypointing() {
             $('#mapp').removeClass('storyPast')
         }},offset:'17%'});
 
+
+    waypoints = $('#dyk_wrap').waypoint({handler: function(direction) {
+        if (direction === 'down') {
+            fixBox('#didyouknow','#dyk_wrap','.fixactive .content',$('#mainApp .controls').position().top )
+        } else {
+            floatBox('#didyouknow','.fixactive .content','#dyk_wrap .content')
+        }
+    },
+        offset:$('#mainApp .controls').position().top
+    })
+
+    waypoints = $('#desc_wrap').waypoint({handler: function(direction) {
+        if (direction === 'down') {
+            fixBox('#descbox','#desc_wrap','.fixactive .content',$('#mainApp .controls').position().top + $('#didyouknow').height()+50 )
+        } else {
+            floatBox('#descbox','.fixactive .content','#desc_wrap .content')
+        }
+    },
+        offset:$('#mainApp .controls').position().top + $('#didyouknow').height() +50
+    })
+
+
+
     waypoints = $('#LifeSocial').waypoint(function(direction) {
         if(direction === 'down') {
             $('#mLifeSocial').addClass('storyPast')
+        } else {
+            $('#mLifeSocial').removeClass('storyPast')
+        }
+    },
+     {offset:'17%'}
+    );
+
+    waypoints = $('#univ_av').waypoint(function(direction) {
+        if(direction === 'down') {
+            $('#mUnivAv').addClass('storyPast')
+        } else {
+            $('#mUnivAv').removeClass('storyPast')
+        }
+    },
+     {offset:'17%'}
+    );
+
+
+    waypoints = $('#LifeSocial').waypoint(function(direction) {
+        if(direction === 'down') {
             data['#mainApp'].used.fields = ['Společenské vědy','Přírodní vědy']
-            data['#mainApp'].used.types = ['Vysoké školy']
 
             Redraw('#mainApp',false,false)
         } else {
-            $('#mLifeSocial').removeClass('storyPast')
-
             data['#mainApp'].used.fields = data['#mainApp'].default.fields
             data['#mainApp'].used.types = data['#mainApp'].default.types
 
             Redraw('#mainApp',false,false)
         }
     },
-     {offset:'17%'}
+     {offset:'60%'}
     );
 
-    waypoints = $('#conclusion').waypoint({handler:function(direction) {
-        if (direction === 'down') {
-            activatefix('#thanks')
+    waypoints = $('#univ_av').waypoint(function(direction) {
+        if(direction === 'down') {
+            data['#mainApp'].used.fields = data['#mainApp'].default.fields
+            data['#mainApp'].used.types = data['#mainApp'].default.types
+
+            Redraw('#mainApp',false,false)
         } else {
-            activatefix('#app')
-        }}});
+            data['#mainApp'].used.fields = ['Společenské vědy','Přírodní vědy']
+
+            Redraw('#mainApp',false,false)
+        }
+    }    );
+
+
+
 
     waypoints = $('#conclusion').waypoint({handler:function(direction) {
         if (direction === 'down') {
@@ -110,8 +173,8 @@ function getSizes() {
     sizes.menu.height = $('#menu').height();
 
     sizes.chart = {};
-    sizes.chart.height = 0.7*sizes.screen.height;
-    sizes.chart.width = 0.7*sizes.screen.height;// +50;
+    sizes.chart.height = 0.8*sizes.screen.height;
+    sizes.chart.width = 0.8*sizes.screen.height;// +50;
 
 }
 

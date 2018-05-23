@@ -128,10 +128,7 @@ div.tooltip {
     background-color:white;
     height:100vh;
     box-sizing: border-box;
-    /* font-size: 1vw; */
-    /* padding-top:10vh; */
-    padding:10vh;
-    /* background-color:white; */
+    padding-top:10vh;
 }
 
 .selected {
