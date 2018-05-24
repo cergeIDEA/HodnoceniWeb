@@ -1,3 +1,9 @@
+var weblink = 'https://vitekzkytek.github.io/HodnoceniWeb/' //TODO smaz az budu znat adresu!!!!
+var bitly = 'https://bit.ly/2s4oahD'
+var webtitle = "Kdo nejvíce publikuje v predátorských a místních časopisech?";
+
+
+
 var orgs = [],insts = [], includedInsts = [];
 
 function sortMenudata() {
@@ -92,7 +98,7 @@ function ddlChange(selector) {
         }
     }
     else {
-           openDescBoxHelp(selector);
+        descBoxDefault()
         $(selector + ' #rstBtn').removeClass('buttonActive')
 
     }
@@ -107,12 +113,19 @@ function unselectAll(selector) {
 }
 
 function SelectSinglePoint(selector, d) {
-    unselectAll(selector);
-    d.selected = 1;
-    $(selector + ' #ddlSearch').val(d.ID).change()
-    $(selector + ' #rstBtn').addClass('buttonActive')
-    openDescBox(selector,d);
-  
+    if (d.selected === 1) {
+        //d.selected == 0;
+        //unselectAll(selector);
+        $(selector + ' #ddlSearch').val('').change()
+
+    } else{
+        //d.selected = 1;
+        //$(selector + ' #rstBtn').addClass('buttonActive')
+        $(selector + ' #ddlSearch').val(d.ID).change()
+
+        //openDescBox(selector,d);
+    }  
+    
 }
 
 function openDescBox(selector,d,IsAvailable=true){
@@ -130,14 +143,17 @@ function openDescBox(selector,d,IsAvailable=true){
 
 function descBoxData(div,d) {
     div = div.append('<p><strong>' + d.Jednotka_name + '</strong> (' + d.Predkladatel_long + ')</p>')
-    div = div.append('<p>V letech 2011 - 2015 instituce do RIV přihlásila celkem ' + d.Total + ' výsledků. Z nich ' + d.Czech + ' vyšlo v místních a dalších ' + d.Predatory + ' v predátorských časopisech</p>')
-    div = div.append('<p>Stáhněte si seznam článků v <a href="xls/'+ d.JEDNOTKA +'_Predatory.xlsx">predátorských</a> a <a href="xls/'+ d.JEDNOTKA +'_Local.xlsx">místních</a> časopisech nebo <a href="xls/'+ d.JEDNOTKA +'_All.xlsx">všech</a> článků zařazených do analýzy.</p>')     
+    div = div.append('<p>V letech 2011 - 2015 celkem ' + d.Total + ' článků indexovaných ve Scopusu. Z toho ' + d.Predatory + ' v predátorských a ' + d.Czech + ' v místních časopisech.</p>')
+    div = div.append('<p>Stáhněte si seznam článků v <a href="xls/'+ d.JEDNOTKA +'_Predatory.xlsx">predátorských</a> a <a href="xls/'+ d.JEDNOTKA +'_Local.xlsx">místních</a> časopisech nebo <a href="xls/'+ d.JEDNOTKA +'_All.xlsx">všech</a> článků.</p>')     
+    div = div.append('<div id="closedescbox" onclick="closeBox(\'#mainApp\')">[-]</div>')
     return div
 }
 
 function descBoxNA(div) {
     div = div.append('<p><strong>' + d.Jednotka_name + '</strong> (' + d.Predkladatel_long + ')</p>')
     div = div.append('<p>Pro toto pracoviště není k dispozici dostatečný počet relevantních výsledků a proto do analýzy nebylo zařazeno.</p>')
+    div = div.append('<div id="closedescbox" onclick="closeBox(\'#mainApp\')">[-]</div>')
+
     return div
 }
 
@@ -147,6 +163,8 @@ function descBoxOrg(org) {
     div.empty();
 
     div = div.append('<p><strong>' + org + '</strong></p>')
+    div = div.append('<div id="closedescbox" onclick="closeBox(\'#mainApp\')">[-]</div>')
+
     div.fadeIn('fast');
 
 }
@@ -157,7 +175,48 @@ function descBoxDefault() {
     div.empty();
     div.append('<p>Kliknutím na legendu <strong>zobrazíte či skryjete</strong> různé obory a typy pracovišť</p>')
     div.append('<p>Pro podrobnosti <strong>klikněte</strong> na jednotlivý bod či <strong>vyhledejte</strong> konkrétní pracoviště podle názvu v roletkovém menu nad grafem.</p>')
-    div.append('<p>Za vybrané pracoviště si <strong>stáhněte</strong> seznam článků v predátorských, místních nebo všech článích zařazených do analýzy.</p>')
+    div.append('<p>Po vybrání konkrétního pracoviště si budete moci <strong>stáhnout</strong> seznam článků v predátorských a místních časopisech.</p>')
 
     div.fadeIn('fast')
+}
+
+function closeBox(selector) {
+    $(selector + ' #ddlSearch').val('').change();
+}
+
+
+function showCopyLink() {
+    $('#myurl').val(weblink);
+    showModal('modCopyLink')
+    //copyLink();
+}
+
+function copyLink(copyinput,linkspan) {
+    $('#' + linkspan).hide();
+    /* Get the text field */
+    var copyText = document.getElementById(copyinput);
+
+    /* Select the text field */
+    copyText.select();
+
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
+
+    $('#' +linkspan).fadeIn();
+}
+
+function shareLinks() {
+    //link = window.location.href;
+    
+    
+    //Facebook
+    $('#fb').attr('href',"https://www.facebook.com/sharer/sharer.php?u=" + encodeURI(weblink));
+
+    //Twitter
+    $('#tw').attr('href',"https://twitter.com/intent/tweet?text=" + encodeURI(webtitle + ' ' + bitly) );
+
+    //LinkedIn
+    $('#li').attr('href',"http://www.linkedin.com/shareArticle?mini=true&url=" + encodeURI(weblink) + "&title=" + encodeURI(webtitle))
+
+    $('#mail').attr('href',"mailto:?subject="+ encodeURIComponent(webtitle) + "&body=" + encodeURIComponent(weblink) )
 }

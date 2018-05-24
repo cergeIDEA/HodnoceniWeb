@@ -37,8 +37,10 @@
                 <div class="content">
                     <h1 id="title">Kdo nejvíce publikuje v predátorských a místních časopisech?</h1>
                     <h2 id="subtitle">Bibliometrická analýza trochu jinak</h2>
-                    <a href="https://idea.cerge-ei.cz/" target="_blank"><img src="img/idea-white.svg" class="logo"/></a>
-                    <a href="http://av21.avcr.cz/" target="_blank" ><img src="img/justStrategyWhite.png" class="logo"/></a>
+                    <div id="logos">
+                        <a href="https://idea.cerge-ei.cz/" target="_blank"><img src="img/idea-white2.svg" class="logo"/></a>
+                        <a href="http://av21.avcr.cz/" target="_blank" ><img src="img/strategie_red_white.svg" class="logo"/></a>
+                    </div>
                     <p>Vítek Macháček a Martin Srholec</p>
                     <p>think-tank IDEA při CERGE-EI</p>
                 </div>
@@ -52,7 +54,7 @@
                         <a id="moCemMluvime" onclick="MoveOn('oCemMluvime')">Proč?</a>
                         <a id="mapp" onclick="MoveOn('empt-app')">Interaktivní aplikace</a>
                         <a id="mLifeSocial" onclick="MoveOn('LifeSocial')">Zajímavé obory</a>
-                        <a id="mUnivAv" onclick="MoveOn('univ_av')">Různé instituce</a>
+                        <a id="mUnivAv" onclick="MoveOn('avcr')">Různé instituce</a>
                         <a id="mConclusion" onclick="MoveOn('conclusion')">Závěrem</a>
                     </center>
                 </div>
@@ -61,23 +63,25 @@
             <div id="oCemMluvime" class="flow">
                 <div class="content">
                     <h3>Světový výzkum a ten zbytek</h3>
-                    <p>Hodnocení výzkumu je obtížné, ale nezbytné, protože poskytuje zpětnou vazbu, bez které je snadné podlehnout sebeklamu. Nikdy nebude dokonalé, jen stěží se zavděčí všem, ale to neznamená, že nemůže prospět. </p>
+                    <p>Hodnocení výzkumu je obtížné, ale nezbytné, protože bez zpětné vazby je snadné podlehnout sebeklamu. Nikdy nebude dokonalé, jen stěží se zavděčí všem, ale to neznamená, že nemůže prospět. </p>
                     <p>Starý vládní systém hodnocení, takzvaný <a class="modalLink" onclick="showModal('modKafemlejnek')">kafemlejnek</a>, napáchal v některých oborech velké škody. Nová <a class="modalLink" onclick="showModal('modMetodika2017')">Metodika 2017+</a> se však rozbíhá pomalu. Navíc jsou problémy, kterými se i nový systém hodnocení zabývá jen okrajově.</p>
                     <p>Nabízíme netradiční pohled. Namísto řazení časopisů podle citačního ohlasu vycházíme ze seznamu časopisů podezřelých z <a class="modalLink" onclick="showModal('modPredPrax')">predátorských praktik</a> a ze seznamu časopisů s výrazně <a class="modalLink" onclick="showModal('modMistniAutori')">místní autorskou základnou</a>.</p>
                     <p>Poskytujeme další střípek do mozaiky toho, kdo u nás dělá jaký výzkum. Pozice dané fakulty či ústavu by měla zajímat nejen manažery výzkumu a tvůrce politik, ale i jejich zaměstnance a potažmo studenty. </p>
                     <p>Navazujeme na <a class="modalLink" onclick="showModal('modPrevious')">předchozí IDEA studie</a> na tato témata.</p>
+                </div>
                     <!-- </div>
             </div>
             <div id="zJakychDat" class="flow">
                 <div class="content"> -->
+                    <div id="emptrect"></div>
+                <div class="content"></div>
                     <h3>Z jakých dat vycházíme?</h3>
-                    <p>Základem je databáze vědeckých článků z vládního <a class="modalLink" onclick="showModal('modHodnoceni2016')">Hodnocení 2016</a>, která zahrnuje údaje z období 2011-2015.</p>
-                    <p><a class="modalLink" onclick="showModal('modPredatori')">Predátorské časopisy</a> jsou určeny podle „černých“ listin Jeffreyho Bealla z dubna 2016, a to s jediným rozdílem, že <a class="modalLink" onclick="showModal('modFrontiers')">nakladatelství Frontiers</a> je vyjmuto, protože jeho zařazení jsme vyhodnotili jako diskutabilní.</p>
-                    <p><a class="modalLink" onclick="showModal('modMistni')">Místní časopisy</a> jsou určeny podle toho, odkud pochází autoři do nich přispívající. K tomu jsou použity údaje o struktuře autorů podle zemí z citační databáze <a class="modalLink" onclick="showModal('modScopus')">Scopus</a> v období 2011-2015. Za místní považujeme časopisy s alespoň třetinovým podílem článků od autorů z Česka a Slovenska, a to bez ohledu na zemi, ve které je registrován jeho vydavatel.</p>
+                    <p>Základem je databáze článků ve vědeckých časopisech z vládního <a class="modalLink" onclick="showModal('modHodnoceni2016')">Hodnocení 2016</a>, která zahrnuje údaje z RIVu za období 2011-2015.</p>
+                    <p><a class="modalLink" onclick="showModal('modPredatori')">Predátorské časopisy</a> jsou určeny podle „černých“ listin časopisů a vydavatelství Jeffreyho Bealla z dubna 2016 (s výjimkou časopisů vydávaných Frontiers Research Foundation). Použity jsou pouze predátorské časopisy indexované v citační databázi <a class="modalLink" onclick="showModal('modScopus')">Scopus</a>.</p>
+                    <p>Místní časopisy jsou určeny podle toho, odkud pochází autoři do nich přispívající. K tomu jsou použity údaje z citační databáze <a class="modalLink" onclick="showModal('modScopus')">Scopus</a> v období 2011-2015. Za místní považujeme časopisy s alespoň třetinovým podílem článků od autorů z Česka a Slovenska.</p>
                     <p>Z toho vyplývá, že do analýzy vstupují pouze články v časopisech indexovaných ve <a class="modalLink" onclick="showModal('modScopus')">Scopusu</a>, které jsou evidované v RIVu. Sledovaný časopis však může být souběžně indexován i ve Web of Science. </p>
                     <p>Výzkumné organizace byly rozřazeny do základních <a class="modalLink" onclick="showModal('modFOS')">FOS oborů</a> podle jejich převažující činnosti a publikačního výstupu.</p>
                 </div>
-            </div>
             <div id="app" class="fix fullscreen">
                 <div class="content">
 
@@ -88,9 +92,9 @@
                 <div class="content">
                     <div id="didyouknow" class="box helpbox">
                         <p>Body zobrazují jednotlivá <a class="modalLink" onclick="showModal('modPracoviste')">výzkumná pracoviště</a></p>
-                        <p>Na osách jsou podíl článků v <a class="modalLink" onclick="showModal('modPredatori')">predátorských</a> a <a class="modalLink" onclick="showModal('modMistni')">místních</a> časopisech na celkých článcích (v %).</p>
+                        <p>Na osách jsou podíly článků v <a class="modalLink" onclick="showModal('modPredatori')">predátorských</a> a <a class="modalLink" onclick="showModal('modMistni')">místních</a> časopisech na celkých článcích (v %).</p>
                         <p>Součet podílů <a class="modalLink" onclick="showModal('modPrekryv')">nemůže</a> přesáhnout 100 %, takže všechny body jsou pod diagonálou. Zvýrazněny jsou i vrstevnice pro nižší součty.</p>
-                        <p>Pracoviště blízko diagonály mají většinu článků v predátorských časopisech.</p>
+                        <p>Pracoviště blízko diagonály mají většinu článků v predátorských a místních časopisech.</p>
                         <p>Pracoviště v levém dolním rohu v takových časopisech články nemají.</p>
                     </div>
                 </div>
@@ -116,51 +120,67 @@
             <div id="LifeSocial" class="flow">
                 <div class="content">
                     <h3>Přírodní vs. společenské vědy</h3>
-                    <p>Zvláště ve <span style="color:#99d594"><strong>společenských vědách</strong></span> najdeme řadu pracovišť s vysokým podílem jak predátorských tak i místních publikací. Není v tomto oboru výjimkou, aby souhrnně do těchto dvou kategorií spadalo více jak 60 % či dokonce 80 % celkového časopiseckého publikačního výkonu pracoviště.</p>
-                    <p>Rozdíl oproti <span style="color:#d53e4f"><strong>přírodním vědám</strong></span> je v obou kategoriích do očí bijící. Přírodovědecká pracoviště jsou v drtivé většině bezpečně ukryta v levém dolním rohu. Jen několik jich vystoupalo na výrazně vyšší vrstevnice. </p>
                 </div>
             </div>
             <div id="empt-lifesocial"class="fixempty fullscreen"></div>
+            <div id="res_wrap" class="fullscreen">
+                    <div class="content">
+                        <div class="box whitebox">
+                            <p>Zvláště ve <span style="color:#99d594"><strong>společenských vědách</strong></span> najdeme řadu pracovišť s vysokým podílem jak predátorských tak i místních publikací. Není v tomto oboru výjimkou, aby souhrnně do těchto dvou kategorií spadalo více jak 60 % či dokonce 80 % publikačního výkonu pracoviště.</p>
+                            <p>Rozdíl oproti <span style="color:#d53e4f"><strong>přírodním vědám</strong></span> je v obou kategoriích do očí bijící. Přírodovědecká pracoviště jsou v drtivé většině bezpečně ukryta v levém dolním rohu. Jen několik jich vystoupalo na výrazně vyšší vrstevnice. </p>
+                        </div>
+                    </div>
+                </div>
+
+            <div id="empt-lifesocial"class="fixempty fullscreen"></div>
+
             <div id="LifeSocial2" class="flow">
                     <div class="content">
                         <p>Průšvih predátorského publikování ve společenských vědách dokládá nejenom, že se doposud nedokázaly zmátořit z desítek let trvající devastace komunistickým režimem, ale i mimořádnou míru jejich pokřivení kafemlejnkem.</p>
-                        <p>Rozsah publikování v místních časopisech tento obrázek dokresluje. Jen v málo oborech společenských věd je přitom místní publikování přirozené jako v humanitních vědách. Například v oborech ekonomie, finance, business a management, do kterých spadá většina vyčnívajících pracovišť, vychází stovky zahraničních indexovaných časopisů. Nelze se vymlouvat, že ve světě není kde publikovat.</p>
+                        <p>Rozsah publikování v místních časopisech tento obrázek dokresluje. Například v oborech ekonomie, finance, business a management, do kterých spadá většina vyčnívajících pracovišť, vychází stovky zahraničních indexovaných časopisů. Nelze se vymlouvat, že ve světě není kde publikovat.</p>
                         <p>Společenské vědy by si zasloužily zvláštní péči od poskytovatelů financí na výzkumnou činnost.  Jejich povznesení na úroveň běžnou ve vyspělých zemích bude vyžadovat daleko větší úsilí než v jiných oborech. Možná se trochu zapomíná, že úroveň společenských věd úzce souvisí s kvalitou vládnutí.</p>
                         <p class="tip">Tip: Klikáním na legendu vytvoříte vlastní srovnání vybraných oborů.</p>
                     </div>
                 </div>
             <div id="empt-lifesocial2"class="fixempty fullscreen"></div>
 
-            <div id="univ_av" class="flow">
-                    <div class="content">
-                        <h3>Akademie věd versus vysoké školy</h3>
-                        <div class="row">
-                            <div class="col">
-                                <h4>Akademie věd ČR</h4>
-                                <p>Na ústavech Akademie věd ČR dochází k publikování v predátorských časopisech jen v ojedinělých případech. Článků v místních časopisech je nejvíce v humanitních oborech, ve kterých je to pochopitelné. </p>
-                            </div>
-                            <div class="col">
-                                <h4>Vysoké školy</h4>
-                                <p>Na vysokých školách je situace odlišná. Nejenže se na řadě fakult běžně publikuje v predátorských časopisech, ale souběžně jsou časté i místní časopisecké články, to nejen v humanitních vědách. Na solidní mezinárodní časopisy občas připadá jen zlomek celkových publikací.</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <img class ="flowimage" src="img/avcr.JPG" />
-                            </div>
-                            <div class="col">
-                                    <img class ="flowimage" src="img/univ.JPG" />
-                                </div>
-                        </div>
-                        <p>Pokud pomineme humanitní vědy, nejhůře v tomto směru vychází fakulty se zaměřením na ekonomii, finance, business a management, veřejnou správu, informatiku, pedagogiku a zdravotnická studia. Nicméně silné zastoupení predátorských a místních článků vykazuje i řada vysokoškolských pracovišť v jiných oborech.</p>
-                        <p class="tip">Tip: Vyhledáním celé univerzity podle názvu v roletkovém menu nad grafem můžete najednou zvýraznit všechna její pracoviště.</p>
-                    </div>
+            <div id="avcr" class="flow">
+                <div class="content">
+                    <h3>Akademie věd</h3>
                 </div>
+            </div>
+            <div class="fixempty fullscreen"></div>
+
+            <div class="fullscreen">
+                <div class="content">
+                    <div class="box whitebox">
+                        <h4>Akademie věd ČR</h4>
+                        <p>Na ústavech Akademie věd ČR dochází k publikování v predátorských časopisech jen v ojedinělých případech. Článků v místních časopisech je nejvíce v humanitních oborech, ve kterých je to pochopitelné. </p>
+                    </div>
+                </div>        
+            </div>
+            <div id="univs" class="flow">
+                <div class="content">
+                    <h3>Vysoké školy</h3>
+                </div>
+            </div>
+            <div class="fixempty fullscreen"></div>
+   
+            <div class="fullscreen">
+                <div class="content">
+                    <div class="box whitebox">
+                            <h4>Vysoké školy</h4>
+                            <p>Na vysokých školách je situace odlišná. Nejenže se na řadě fakult běžně publikuje v predátorských časopisech, ale souběžně jsou časté i místní časopisecké články, to nejen v humanitních vědách. Na solidní mezinárodní časopisy občas připadá jen zlomek celkových publikací.</p>
+                            <p>Pokud pomineme humanitní vědy, nejhůře v tomto směru vychází fakulty se zaměřením na ekonomii, finance, business a management, veřejnou správu, informatiku, pedagogiku a zdravotnická studia. Nicméně silné zastoupení predátorských a místních článků vykazuje i řada vysokoškolských pracovišť v jiných oborech.</p>
+                            <p class="tip">Tip: Vyhledáním celé univerzity podle názvu v roletkovém menu nad grafem můžete najednou zvýraznit všechna její pracoviště.</p>
+    
+                    </div>
+                </div>        
+            </div>
             <div id="empt-univav"class="fixempty fullscreen"></div>
             <div id="jakvysvetlit" class="flow">
                     <div class="content">
-                        <h3>Čím takový rozdíl vysvětlit?</h3>
-                        <p>Na řadě vysokých škol vyrostly výzkumné kapacity teprve poměrně nedávno. Na problémy zadělal vládní kafemlejnek, který souběžně legitimizoval nahrazování kvality kvantitou. Na vysokých školách tento automatismus nezřídka zcela nahradil strategické řízení vědy. Někde chybí patřičná „štábní kultura“ zezdola i tlak na kvalitu seshora. Nelze se pak divit, že na některých fakultách je výsledek tristní.</p>
+                            <p>Na řadě vysokých škol vyrostly výzkumné kapacity teprve poměrně nedávno. Na problémy zadělal vládní kafemlejnek, který souběžně legitimizoval nahrazování kvality kvantitou. Na vysokých školách tento automatismus nezřídka zcela nahradil strategické řízení vědy. Někde chybí patřičná „štábní kultura“ zezdola i tlak na kvalitu seshora. Nelze se pak divit, že na některých fakultách je výsledek tristní.</p>
                         <p>Na Akademii věd ČR má solidní výzkum s mezinárodním přesahem dlouhou tradici. Možná i proto se akademie kafemlejnkem nikdy neřídila a postupně zavedla vlastní metodiku hodnocení, která je založena na mezinárodním peer-review v odborných panelech. Predátorskému publikování takové prostředí neprospívá. </p>
                         <p>Pokud by se měla někam zacílit pozornost, byla by to právě v našem srovnání vybočující vysokoškolská pracoviště. Na problémových fakultách by bylo záhodno změnit nejenom způsob hodnocení a rozdělování peněz na výzkum, ale hlavně způsob řízení a myšlení o tom, jaký výzkum se má dělat. </p>
                         <p>Metodika 2017+ má potenciál nežádoucí motivace vyvolávané kafemlejnkem zpřetrhat. Některé vysoké školy s články převážně v predátorských a místních časopisech možná čeká nepříjemný střet s realitou. Nicméně kafemlejnek nebude minulostí, dokud se podle něho na vysokých školách budou rozdělovat peníze, což bude ještě nejméně několik let. Navíc vůbec nelze vyloučit, že podobný způsob hodnocení bude v sektoru vysokých škol pokračovat i nadále.</p>
@@ -173,8 +193,10 @@
                 <div class="content">
                     <h3>Pár slov závěrem</h3>
                     <p>Jistě se najdou lidé, kteří s těmito výsledky budou polemizovat. Někteří budou poukazovat na to, že konkrétní časopis je sice místní či predátorský, ale to neznamená, že je nekvalitní nebo irelevantní. Jiní nás budou upozorňovat na to, že ani v zahraničních nepredátorských časopisech  se nepublikují jen samé skvosty a kvalita recenzního řízení také není žádná sláva. A koneckonců jistě mohou mít v konkrétních případech pravdu.</p>
-                    <p>Koneckonců nebereme v úvahu články v jiných „pozoruhodných“ (chorvatských, litevských, estonských,  polských či rumunských) časopisech, které sice podle zvolené definice nevychází jako místní, ale z hlediska obsahu jsou velmi podobné. Na některých pracovištích jsou i takových článků nezanedbatelné počty. </p>
+                    <p>Koneckonců nebreme v úvahu články v jiných „pozoruhodných“ (chorvatských, litevských, estonských,  polských či rumunských) časopisech, které sice podle zvolené definice nevychází jako místní, ale z hlediska obsahu jsou velmi podobné. Na některých pracovištích jsou i takových článků nezanedbatelné počty. </p>
+                    <p>Jelikož srovnání vychází z databáze Hodnocení 2016, nejsou v analýze zohledněny články, které sice vyšly v časopisech indexovaných ve Scopusu, ale nebyly evidovány v RIVu. Například se může jednat o predátorské články, jejichž publikaci sice pracoviště nezabránilo, ale rozhodlo se je do RIVu nenahlásit (anebo později vymazat). </p>
                     <p>Nicméně to nic nemění na hlavních poznatcích, které z této studie vycházejí – totiž, že zejména na vysokých školách a zejména ve společenských vědách je před námi velká výzva, se kterou se musí hodnotitelé a manažeři výzkumu utkat. Právě tyto obory jsou totiž klíčové pro největší brzdu naší konkurenceschopnosti – totiž kvalitu veřejných institucí.</p>
+                    <p></p>
                     <p class="tip">Tip: doporučujeme nad aplikací strávit delší čas a dopodrobna prozkoumat obory a pracoviště, které jsou Vám blízké.</p>
                 </div>
             </div>
@@ -183,19 +205,18 @@
             <div id="thanks" class="flow">
                 <div class="content">
                     <h1 id="title">Děkujeme za pozornost!</h1>
-                    <h2>Zpět na <a class="modalLink" onclick="MoveOn('empt-app')">Interaktivní aplikaci</a></h2>
+                    <h2>Zpět na <a class="modalLink" onclick="MoveOn('empt-conclusion')">Interaktivní aplikaci</a></h2>
 
-                    <a href="https://idea.cerge-ei.cz/" target="_blank"><img src="img/IDEA.png" class="logo"/></a>
-                    <a href="http://av21.avcr.cz/" target="_blank" ><img src="img/justStrategyWhite.png" class="logo"/></a>
+                    <a href="https://idea.cerge-ei.cz/" target="_blank"><img src="img/IDEA_greybcg.svg" class="logo"/></a>
+                    <a href="http://av21.avcr.cz/" target="_blank" ><img src="img/Logo_Strategie_V3m.svg" class="logo"/></a>
                     <h2 id="subtitle">Pokud se Vám to líbilo, nezapomeňte se o to podělit s ostatními!</h2>
 
                     <div id="shares">
-                        <!-- <a onclick="fb_share()"><img src="img/fb.svg" /></a> -->
-                        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.irozhlas.cz%2Fzpravy-domov%2Fmartin-bugner-twitter-invalidni-vozik-sbirka-transparentni-ucet_1805211955_hm" ><img src="img/fb.svg" /></a>
-                        <a target="_blank" href="https://twitter.com/intent/tweet?text=Hello%20World"><img src="img/twitter2.svg" /></a>
-                        <a><img src="img/linkedin.svg" /></a>
-                        <a><img src="img/mail.svg" /></a>
-                        <a><img src="img/link.svg" /></a>
+                        <a id="fb"target="_blank" href=""><img src="img/fb.svg" /></a>
+                        <a id="tw"target="_blank" href=""><img src="img/twitter2.svg" /></a>
+                        <a id="li"target="_blank" href=""><img src="img/linkedin.svg" /></a>
+                        <a id="mail" href=""><img src="img/mail.svg" /></a>
+                        <a onclick="showCopyLink()"><img src="img/link.svg" /></a>
                     </div>
                 </div>
             </div>
@@ -266,18 +287,37 @@
                 </div>
             </div>
             <div id="modRozliseni" class="modal">
-                    <div class="close" onclick="hideModal()"><img src="img/closeIcon3.svg" /></div>
                     <div class="modalBody">
                         <h3>Nízké rozlišení</h3>
                         <p>Omlouváme se, ale tato interaktivní apliakce je optimalizována pro rozlišení alespoň 1200x600. Studii doporučujeme zobrazit na stolním počítači či notebooku. Případně zkuste prohlížeč maximalizovat.</p>
-                        <p>Zkuste si zkopírovat internetovou adresu!</p> 
-                        <!-- TODO copy adress -->
+                        <p>Chcete-li si čtení nechat na později, zkuste si zkopírovat internetovou adresu!</p> 
+                        <div style="margin:30px;">
+                            <input type="text" value="" id="myurl2">
+    
+                            <button onclick="copyLink('myurl2','linkCopied2')" class="button buttonActive"> Zkopírovat</button>
+                            <span id="linkCopied2" class="linkCopied" >Odkaz zkopírován</span>
+                        </div>
+    
                         <center><a onclick="hideModal()" class="button buttonActive">Skrýt</a></center>
                     </div>
                 </div>
-    
+            <div id="modCopyLink" class="modal">
+                <div class="modalBody">
+                    <h3>Zkopírovat odkaz</h3>
+                    <div style="margin:30px;">
+                        <input type="text" value="" id="myurl">
+
+                        <button onclick="copyLink('myurl','linkCopied')" class="button buttonActive"> Zkopírovat</button>
+                        <span id="linkCopied" class="linkCopied" >Odkaz zkopírován</span>
+                    </div>
+                    <center><a onclick="hideModal()" class="button buttonActive">Skrýt</a></center>
+
+                </div>
+            </div>
         </div>
     </div>
+</div>
+
     </body>
 
 

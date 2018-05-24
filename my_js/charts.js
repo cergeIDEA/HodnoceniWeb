@@ -93,7 +93,6 @@ function generateElementStructure(selector) {
 
     $('#didyouknow').css('left',sizes.chart.width + 50)
     $('#descbox').css('left',sizes.chart.width + 50)
-    $('#resbox').css('left',sizes.chart.width - 100)
 
 
 }

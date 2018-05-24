@@ -15,6 +15,9 @@ function loadJS() {
 
     checkResolution();
 
+    $('.whitebox').css('left',sizes.chart.width - 200)
+
+    shareLinks();
 
 }
 
@@ -22,6 +25,7 @@ function checkResolution() {
 
     w = $(window).width()
     if (w<1201) {
+        $('#myurl2').val(bitly)
         showModal('modRozliseni')
     }
 }
@@ -112,7 +116,7 @@ function waypointing() {
      {offset:'17%'}
     );
 
-    waypoints = $('#univ_av').waypoint(function(direction) {
+    waypoints = $('#avcr').waypoint(function(direction) {
         if(direction === 'down') {
             $('#mUnivAv').addClass('storyPast')
         } else {
@@ -126,6 +130,7 @@ function waypointing() {
     waypoints = $('#LifeSocial').waypoint(function(direction) {
         if(direction === 'down') {
             data['#mainApp'].used.fields = ['Společenské vědy','Přírodní vědy']
+            data['#mainApp'].used.types = data['#mainApp'].default.types
 
             Redraw('#mainApp',false,false)
         } else {
@@ -138,18 +143,48 @@ function waypointing() {
      {offset:'60%'}
     );
 
-    waypoints = $('#univ_av').waypoint(function(direction) {
+    waypoints = $('#avcr').waypoint({handler:function(direction) {
+        if(direction === 'down') {
+            data['#mainApp'].used.fields = data['#mainApp'].default.fields
+            data['#mainApp'].used.types = ['Akademie věd']
+
+            Redraw('#mainApp',false,false)
+        } else {
+            data['#mainApp'].used.fields = ['Společenské vědy','Přírodní vědy']
+            data['#mainApp'].used.types = data['#mainApp'].default.types;
+
+            Redraw('#mainApp',false,false)
+        }
+    },offset:'60%'}    );
+
+    waypoints = $('#univs').waypoint({handler:function(direction) {
+        if(direction === 'down') {
+            data['#mainApp'].used.fields = data['#mainApp'].default.fields
+            data['#mainApp'].used.types = ['Vysoké školy']
+
+            Redraw('#mainApp',false,false)
+        } else {
+            data['#mainApp'].used.fields = data['#mainApp'].default.fields
+            data['#mainApp'].used.types = ['Akademie věd']
+
+            Redraw('#mainApp',false,false)
+        }
+    },offset:'60%'}    );
+
+
+    waypoints = $('#conclusion').waypoint({handler:function(direction) {
         if(direction === 'down') {
             data['#mainApp'].used.fields = data['#mainApp'].default.fields
             data['#mainApp'].used.types = data['#mainApp'].default.types
 
             Redraw('#mainApp',false,false)
         } else {
-            data['#mainApp'].used.fields = ['Společenské vědy','Přírodní vědy']
+            data['#mainApp'].used.fields = data['#mainApp'].default.fields
+            data['#mainApp'].used.types = ['Vysoké školy']
 
             Redraw('#mainApp',false,false)
         }
-    }    );
+    },offset:'60%'}    );
 
 
 
