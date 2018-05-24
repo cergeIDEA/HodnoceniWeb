@@ -15,7 +15,7 @@ function loadJS() {
 
     checkResolution();
 
-    $('.whitebox').css('left',sizes.chart.width - 200)
+    $('.whitebox').css('left',sizes.chart.width - 300)
 
     shareLinks();
 
@@ -69,6 +69,27 @@ function waypointing() {
                     $('#moCemMluvime').removeClass('storyPast')
                 }},offset:'17%'});
 
+
+    waypoints = $('#zJakychDat').waypoint({handler:function(direction) {
+        if (direction === 'down') {
+            $('#mzJakychDat').addClass('storyPast')
+        } else {
+            $('#mzJakychDat').removeClass('storyPast')
+        }},offset:'17%'});
+    
+    
+    // waypoints = $('#oCemMluvime').waypoint({handler:function(direction) {
+    //     if (direction === 'down') {
+    //         $('#oCemMluvime').removeClass('flow')
+    //         $('#oCemMluvime').addClass('fix')
+    //         activatefix('#oCemMluvime')
+
+    //     } else {
+    //         $('#oCemMluvime').css('position','float')
+    //     }},offset:'0%'});
+
+    
+
     waypoints = $('#oCemMluvime').waypoint(function(direction) {
         if (direction === 'down') {
             activatefix('#app')
@@ -86,9 +107,9 @@ function waypointing() {
 
     waypoints = $('#dyk_wrap').waypoint({handler: function(direction) {
         if (direction === 'down') {
-            fixBox('#didyouknow','#dyk_wrap','.fixactive .content',$('#mainApp .controls').position().top )
+            fixBox('#didyouknow','#dyk_wrap','.fixactive .chartcontainer',$('#mainApp .controls').position().top )
         } else {
-            floatBox('#didyouknow','.fixactive .content','#dyk_wrap .content')
+            floatBox('#didyouknow','.fixactive .chartcontainer','#dyk_wrap .chartcontainer')
         }
     },
         offset:$('#mainApp .controls').position().top
@@ -96,9 +117,9 @@ function waypointing() {
 
     waypoints = $('#desc_wrap').waypoint({handler: function(direction) {
         if (direction === 'down') {
-            fixBox('#descbox','#desc_wrap','.fixactive .content',$('#mainApp .controls').position().top + $('#didyouknow').height()+50 )
+            fixBox('#descbox','#desc_wrap','.fixactive .chartcontainer',$('#mainApp .controls').position().top + $('#didyouknow').height()+50 )
         } else {
-            floatBox('#descbox','.fixactive .content','#desc_wrap .content')
+            floatBox('#descbox','.fixactive .chartcontainer','#desc_wrap .chartcontainer')
         }
     },
         offset:$('#mainApp .controls').position().top + $('#didyouknow').height() +50

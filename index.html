@@ -53,6 +53,7 @@
                     <center>
                         <a class="storyPast" onclick="MoveOn('empty-intro')">Úvod</a>
                         <a id="moCemMluvime" onclick="MoveOn('oCemMluvime')">Proč?</a>
+                        <a id="mzJakychDat" onclick="MoveOn('zJakychDat')">Data</a>
                         <a id="mapp" onclick="MoveOn('empt-app')">Interaktivní aplikace</a>
                         <a id="mLifeSocial" onclick="MoveOn('LifeSocial')">Zajímavé obory</a>
                         <a id="mUnivAv" onclick="MoveOn('avcr')">Různé instituce</a>
@@ -63,7 +64,7 @@
 
             </div>
             <div id="menuempty"></div>
-            <div id="oCemMluvime" class="flow">
+            <div id="oCemMluvime" class="flow flowtext">
                 <div class="content">
                     <h3>Světový výzkum a ten zbytek</h3>
                     <p>Hodnocení výzkumu je obtížné, ale nezbytné, protože bez zpětné vazby je snadné podlehnout sebeklamu. Nikdy nebude dokonalé, jen stěží se zavděčí všem, ale to neznamená, že nemůže prospět. </p>
@@ -77,7 +78,7 @@
             <div id="zJakychDat" class="flow">
                 <div class="content"> -->
                     <div id="emptrect"></div>
-                <div class="content"></div>
+                <div id="zJakychDat" class="content">
                     <h3>Z jakých dat vycházíme?</h3>
                     <p>Základem je databáze článků ve vědeckých časopisech z vládního <a class="modalLink" onclick="showModal('modHodnoceni2016')">Hodnocení 2016</a>, která zahrnuje údaje z RIVu za období 2011-2015.</p>
                     <p><a class="modalLink" onclick="showModal('modPredatori')">Predátorské časopisy</a> jsou určeny podle „černých“ listin časopisů a vydavatelství Jeffreyho Bealla z dubna 2016 (s výjimkou časopisů vydávaných Frontiers Research Foundation). Použity jsou pouze predátorské časopisy indexované v citační databázi <a class="modalLink" onclick="showModal('modScopus')">Scopus</a>.</p>
@@ -85,14 +86,15 @@
                     <p>Z toho vyplývá, že do analýzy vstupují pouze články v časopisech indexovaných ve <a class="modalLink" onclick="showModal('modScopus')">Scopusu</a>, které jsou evidované v RIVu. Sledovaný časopis však může být souběžně indexován i ve Web of Science. </p>
                     <p>Výzkumné organizace byly rozřazeny do základních <a class="modalLink" onclick="showModal('modFOS')">FOS oborů</a> podle jejich převažující činnosti a publikačního výstupu.</p>
                 </div>
+        </div>
             <div id="app" class="fix fullscreen">
-                <div class="content">
+                <div class="chartcontainer">
 
                 </div>
             </div>
             <div id="empt-app"class="fixempty fullscreen"></div>
             <div id="dyk_wrap" class="fullscreen">
-                <div class="content">
+                <div class="chartcontainer">
                     <div id="didyouknow" class="box helpbox">
                         <p>Body zobrazují jednotlivá <a class="modalLink" onclick="showModal('modPracoviste')">výzkumná pracoviště</a></p>
                         <p>Na osách jsou podíly článků v <a class="modalLink" onclick="showModal('modPredatori')">predátorských</a> a <a class="modalLink" onclick="showModal('modMistni')">místních</a> časopisech na celkých článcích (v %).</p>
@@ -103,7 +105,7 @@
                 </div>
             </div>
             <div id="desc_wrap" class="fullscreen">
-                <div class="content">
+                <div class="chartcontainer">
                     <div id="descbox" class="box detailbox">
                         <p><strong>Kliknutím</strong> na legendu <strong>zobrazíte či skryjete</strong> různé obory a typy pracovišť.</p>
                         <p>Pro podrobnosti <strong>klikněte</strong> na jednotlivý bod či <strong>vyhledejte</strong> konkrétní pracoviště podle názvu v roletkovém menu nad grafem.</p>
@@ -120,13 +122,13 @@
                     </div>
                 </div>
     
-            <div id="LifeSocial" class="flow">
+            <div id="LifeSocial" class="flow flowtitle">
                 <div class="content">
                     <h3>Přírodní vs. společenské vědy</h3>
                 </div>
             </div>
             <div id="empt-lifesocial"class="fixempty fullscreen"></div>
-            <div id="res_wrap" class="fullscreen">
+            <div class="fullscreen">
                     <div class="content">
                         <div class="box whitebox">
                             <p>Zvláště ve <span style="color:#99d594"><strong>společenských vědách</strong></span> najdeme řadu pracovišť s vysokým podílem jak predátorských tak i místních publikací. Není v tomto oboru výjimkou, aby souhrnně do těchto dvou kategorií spadalo více jak 60 % či dokonce 80 % publikačního výkonu pracoviště.</p>
@@ -137,7 +139,7 @@
 
             <div id="empt-lifesocial"class="fixempty fullscreen"></div>
 
-            <div id="LifeSocial2" class="flow">
+            <div id="LifeSocial2" class="flow flowtext">
                     <div class="content">
                         <p>Průšvih predátorského publikování ve společenských vědách dokládá nejenom, že se doposud nedokázaly zmátořit z desítek let trvající devastace komunistickým režimem, ale i mimořádnou míru jejich pokřivení kafemlejnkem.</p>
                         <p>Rozsah publikování v místních časopisech tento obrázek dokresluje. Například v oborech ekonomie, finance, business a management, do kterých spadá většina vyčnívajících pracovišť, vychází stovky zahraničních indexovaných časopisů. Nelze se vymlouvat, že ve světě není kde publikovat.</p>
@@ -147,7 +149,7 @@
                 </div>
             <div id="empt-lifesocial2"class="fixempty fullscreen"></div>
 
-            <div id="avcr" class="flow">
+            <div id="avcr" class="flow flowtitle">
                 <div class="content">
                     <h3>Akademie věd</h3>
                 </div>
@@ -162,7 +164,7 @@
                     </div>
                 </div>        
             </div>
-            <div id="univs" class="flow">
+            <div id="univs" class="flow flowtitle">
                 <div class="content">
                     <h3>Vysoké školy</h3>
                 </div>
@@ -181,7 +183,7 @@
                 </div>        
             </div>
             <div id="empt-univav"class="fixempty fullscreen"></div>
-            <div id="jakvysvetlit" class="flow">
+            <div id="jakvysvetlit" class="flow flowtext">
                     <div class="content">
                             <p>Na řadě vysokých škol vyrostly výzkumné kapacity teprve poměrně nedávno. Na problémy zadělal vládní kafemlejnek, který souběžně legitimizoval nahrazování kvality kvantitou. Na vysokých školách tento automatismus nezřídka zcela nahradil strategické řízení vědy. Někde chybí patřičná „štábní kultura“ zezdola i tlak na kvalitu seshora. Nelze se pak divit, že na některých fakultách je výsledek tristní.</p>
                         <p>Na Akademii věd ČR má solidní výzkum s mezinárodním přesahem dlouhou tradici. Možná i proto se akademie kafemlejnkem nikdy neřídila a postupně zavedla vlastní metodiku hodnocení, která je založena na mezinárodním peer-review v odborných panelech. Predátorskému publikování takové prostředí neprospívá. </p>
@@ -192,7 +194,7 @@
                 </div>
             <div id="empt-lifesocial2"class="fixempty fullscreen"></div>
 
-            <div id="conclusion" class="flow">
+            <div id="conclusion" class="flow flowtext">
                 <div class="content">
                     <h3>Pár slov závěrem</h3>
                     <p>Jistě se najdou lidé, kteří s těmito výsledky budou polemizovat. Někteří budou poukazovat na to, že konkrétní časopis je sice místní či predátorský, ale to neznamená, že je nekvalitní nebo irelevantní. Jiní nás budou upozorňovat na to, že ani v zahraničních nepredátorských časopisech  se nepublikují jen samé skvosty a kvalita recenzního řízení také není žádná sláva. A koneckonců jistě mohou mít v konkrétních případech pravdu.</p>

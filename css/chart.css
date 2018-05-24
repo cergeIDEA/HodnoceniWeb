@@ -67,6 +67,11 @@ div.tooltip {
     height:	40px;
     position:relative;
 }
+.chartcontainer {
+    position: relative;
+    width:1000px;
+    margin:auto;
+}
 
 .button {
     cursor: pointer;
@@ -124,7 +129,6 @@ div.tooltip {
 
 .chartDiv {
     position: relative;
-    width: 100%;
     background-color:white;
     height:100vh;
     box-sizing: border-box;

@@ -22,7 +22,7 @@ function DrawAllCharts() {
 
     GenerateGlobals();
 
-    $('#app .content').append('<div id="mainApp" class="chartDiv" />')
+    $('#app .chartcontainer').append('<div id="mainApp" class="chartDiv" />')
     generateDataObject('#mainApp',legendTexts.field,legendTexts.types,false);
 
     DrawChart('#mainApp');
@@ -91,8 +91,8 @@ function generateElementStructure(selector) {
     chartdiv = $('#chart');
 
 
-    $('#didyouknow').css('left',sizes.chart.width + 50)
-    $('#descbox').css('left',sizes.chart.width + 50)
+    $('#didyouknow').css('left',sizes.chart.width+50)
+    $('#descbox').css('left',sizes.chart.width+50)
 
 
 }
