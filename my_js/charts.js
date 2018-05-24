@@ -5,12 +5,12 @@ var data = {};
 legendTexts = {
     // field: ['Zemědělské vědy', 'Technické vědy', 'Humanitní vědy', 'Lékařské vědy','Přírodní vědy','Společenské vědy'],
     field: ['Přírodní vědy','Technické vědy','Lékařské vědy','Zemědělské vědy','Společenské vědy','Humanitní vědy'],
-    types: ['Akademie věd','Vysoké školy','Ostatní']
+    types: ['Akademie věd ČR','Vysoké školy','Ostatní']
 }
 
 var legendIDs = {
     field: {'Zemědělské vědy' : 'agri','Technické vědy':'tech','Humanitní vědy':'human','Lékařské vědy':'medic','Přírodní vědy':'life','Společenské vědy':'social'},
-    types: {'Akademie věd':'AV','Vysoké školy':'univ','Ostatní':'other'}
+    types: {'Akademie věd ČR':'AV','Vysoké školy':'univ','Ostatní':'other'}
 }
 colors = ['#d53e4f','#fc8d59','#fee08b','#e6f598','#99d594','#3288bd'];
 

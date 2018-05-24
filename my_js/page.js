@@ -167,7 +167,7 @@ function waypointing() {
     waypoints = $('#avcr').waypoint({handler:function(direction) {
         if(direction === 'down') {
             data['#mainApp'].used.fields = data['#mainApp'].default.fields
-            data['#mainApp'].used.types = ['Akademie věd']
+            data['#mainApp'].used.types = ['Akademie věd ČR']
 
             Redraw('#mainApp',false,false)
         } else {
@@ -186,7 +186,7 @@ function waypointing() {
             Redraw('#mainApp',false,false)
         } else {
             data['#mainApp'].used.fields = data['#mainApp'].default.fields
-            data['#mainApp'].used.types = ['Akademie věd']
+            data['#mainApp'].used.types = ['Akademie věd ČR']
 
             Redraw('#mainApp',false,false)
         }

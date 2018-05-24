@@ -32,7 +32,42 @@ function createSelect2(selector) {
     $(selector).append(controls);
 
     function formatResult(node) {
-      var $result = $('<span style="padding-left:' + (20 * node.level) + 'px;">' + node.text + '</span>');
+
+        function checkvisib(node) {
+            var istype = true;
+            var isfield = true;
+            if (node.level == 0) {//Is Org
+                if (data['#mainApp'].used.types.includes(node.Type)){
+                    istype = true;
+                } else {
+                    istype = false;
+                }
+            } else { //Is institution
+                if (data['#mainApp'].used.types.includes(node.Type)){
+                    istype = true;
+                } else {
+                    istype = false;
+                }
+    
+                if (data['#mainApp'].used.fields.includes(node.Field)){
+                    isfield = true;
+                } else {
+                    isfield = false;
+                }
+            }
+
+            if (istype && isfield) {
+                return true;
+            }
+            else {
+                return false;
+            }
+    
+        }
+        var visible = checkvisib(node);
+        scolor = (visible) ? 'ddlvisible' : 'ddlunvisible' 
+        s= '<span style="padding-left:' + (20 * node.level) + 'px;" class="' + scolor + '">' + node.text + '</span>'
+      var $result = $(s);
       return $result;
     };
 
