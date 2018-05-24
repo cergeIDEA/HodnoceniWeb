@@ -100,6 +100,16 @@ function generateElementStructure(selector) {
 
 //Drawing methods
 function filterArray (selector) {
+
+    function compare(a,b) {
+        if (a.selected < b.selected)
+          return -1;
+        if (a.selected > b.selected)
+          return 1;
+        return 0;
+      }
+      
+
     listinst = $.map(data[selector].institutions,function(el) {return el;});
     if (data[selector].used.fields.length != legendTexts.field.length) {
        listinst = listinst.filter(inst => data[selector].used.fields.includes(inst.Obor))
@@ -107,7 +117,7 @@ function filterArray (selector) {
    if (data[selector].used.types.length != legendTexts.types.length) {
       listinst = listinst.filter(inst => data[selector].used.types.includes(inst.Type))
    }
-   return listinst;
+   return listinst.sort(compare);
 };
 
 function DrawData(selector, selectedPoints=null) {
@@ -142,14 +152,6 @@ function DrawData(selector, selectedPoints=null) {
                 if (d.selected != 0) {return 'dot selected'; }
                 else {return 'dot unselected'; }
             }
-            // else {
-              if (selectedPoints != null) {
-                for  (i=0; i < points.length; i++ ) {
-                  if (selectedPoints[i].ID == d.ID) {return 'dot selected';}
-                  else {return 'dot unselected'; }
-                }
-              }
-            // }
         }) // Adjust selection here
         .attr('data-legend',function(d) {return d.Obor})
         d3.selectAll(selector + ' #circles circle')
