@@ -245,9 +245,10 @@ h4 {
 
 .whitebox {
     background-color:white;
-    padding:20px;
-    width:550px;
+    padding:30px 50px 30px 50px;
+    width:600px;
     font-size:calc(12px + .5vh); 
+    box-sizing: border-box;
 }
 
 
@@ -345,6 +346,7 @@ h4 {
 }
 .modalBody h3 {
     color:#bb133e;
+    padding:10px;
 }
 .modalLink {
     color:#bb133e;

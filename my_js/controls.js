@@ -28,7 +28,7 @@ function createSelect2(selector) {
     select.append('<option />')
     controls.append(select)
 
-    controls.append($('<a id="rstBtn" class="button buttonPassive" onclick="Redraw(\''+selector  +'\')">Obnovit</a>'));
+    controls.append($('<a id="rstBtn" class="button buttonPassive" onclick="Redraw(\''+selector  +'\',true,true)">Obnovit</a>'));
     $(selector).append(controls);
 
     function formatResult(node) {
@@ -37,19 +37,19 @@ function createSelect2(selector) {
             var istype = true;
             var isfield = true;
             if (node.level == 0) {//Is Org
-                if (data['#mainApp'].used.types.includes(node.Type)){
+                if (data['#mainApp'].used.types.indexOf(node.Type) != -1){
                     istype = true;
                 } else {
                     istype = false;
                 }
             } else { //Is institution
-                if (data['#mainApp'].used.types.includes(node.Type)){
+                if (data['#mainApp'].used.types.indexOf(node.Type) != -1){
                     istype = true;
                 } else {
                     istype = false;
                 }
     
-                if (data['#mainApp'].used.fields.includes(node.Field)){
+                if (data['#mainApp'].used.fields.indexOf(node.Field) != -1){
                     isfield = true;
                 } else {
                     isfield = false;
@@ -91,8 +91,8 @@ function createSelect2(selector) {
 function toggleLegendClick(input,legtype,el) {
     selector = '#' + $(el).parent().parent().parent().parent().parent().parent().attr('id')
 
-    if (data[selector].used[legtype].includes(input)) {
-        data[selector].used[legtype] = data[selector].used[legtype].filter(e => e != input);
+    if (data[selector].used[legtype].indexOf(input) != -1) {
+        data[selector].used[legtype] = data[selector].used[legtype].filter(function(e) {return e != input; });//e => e != input);
     }
     else {
         data[selector].used[legtype].push(input)
@@ -109,11 +109,11 @@ function ddlChange(selector) {
     var anythingSelected = (id !== '') ? true : false;
 
     if (anythingSelected) {
-        var IsOrg = (orgs.includes(id)) ? true : false;
+        var IsOrg = (orgs.indexOf(id) != -1) ? true : false;
         $(selector + ' #rstBtn').addClass('buttonActive')
         if (IsOrg) {
             listinst = $.map(data[selector].institutions,function(el) {return el;});
-            ds = listinst.filter(d => d.Predkladatel_short === id);
+            ds = listinst.filter(function(d) {return d.Predkladatel_short === id;});//d => d.Predkladatel_short === id);
 
             $.each(ds,function(key,value)
                 {
@@ -122,10 +122,10 @@ function ddlChange(selector) {
             descBoxOrg( $(selector + ' #ddlSearch').select2('data')[0].text)
         }
          else {
-            if(includedInsts.includes(id)) {
+            if(includedInsts.indexOf(id) != -1) {
                 d = data[selector].institutions[id];
                 d.selected = 1;
-                openDescBox(selector,d);
+                openDescBox(selector,d,true);
             }else {
                 d = excludedInsts[id];
                 openDescBox(selector,d,false);
@@ -149,21 +149,15 @@ function unselectAll(selector) {
 
 function SelectSinglePoint(selector, d) {
     if (d.selected === 1) {
-        //d.selected == 0;
-        //unselectAll(selector);
         $(selector + ' #ddlSearch').val('').change()
-
     } else{
-        //d.selected = 1;
-        //$(selector + ' #rstBtn').addClass('buttonActive')
         $(selector + ' #ddlSearch').val(d.ID).change()
-
-        //openDescBox(selector,d);
     }  
     
 }
 
-function openDescBox(selector,d,IsAvailable=true){
+function openDescBox(selector,d,IsAvailable){
+    // IsAvailable = IsAvailable 
     div = $('#descbox')
     div.hide();
     div.empty();

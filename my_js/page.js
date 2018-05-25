@@ -15,7 +15,7 @@ function loadJS() {
 
     checkResolution();
 
-    $('.whitebox').css('left',sizes.chart.width - 300)
+    $('.whitebox').css('left',sizes.chart.width - 350)
 
     shareLinks();
 

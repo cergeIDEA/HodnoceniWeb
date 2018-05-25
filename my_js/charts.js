@@ -46,7 +46,7 @@ function DrawChart(selector){
 
 
 };
-function Redraw(selector,showdefault=true,fadeIn=true) {
+function Redraw(selector,showdefault,fadeIn) {
     // data[selector].used = {}
     if (showdefault) {
         data[selector].used.fields = data[selector].default.fields
@@ -112,15 +112,15 @@ function filterArray (selector) {
 
     listinst = $.map(data[selector].institutions,function(el) {return el;});
     if (data[selector].used.fields.length != legendTexts.field.length) {
-       listinst = listinst.filter(inst => data[selector].used.fields.includes(inst.Obor))
+       listinst = listinst.filter(function (inst) {return data[selector].used.fields.indexOf(inst.Obor) != -1; })//inst => data[selector].used.fields.includes(inst.Obor))
    }
    if (data[selector].used.types.length != legendTexts.types.length) {
-      listinst = listinst.filter(inst => data[selector].used.types.includes(inst.Type))
+      listinst = listinst.filter(function (inst) {return data[selector].used.types.indexOf(inst.Type) != -1; })//inst => data[selector].used.types.includes(inst.Type))
    }
    return listinst.sort(compare);
 };
 
-function DrawData(selector, selectedPoints=null) {
+function DrawData(selector) {
     // var selector = selector
     var points = filterArray(selector)
     promenna = selector; //TODO odstranit tuhle prasarnu
@@ -209,7 +209,7 @@ function DrawFieldLegend(selector) {
                     .enter()
                     .append('g')
                     .attr('class',function(d) {
-                        if(data[selector].used.fields.includes(d))
+                        if(data[selector].used.fields.indexOf(d) != -1)
                         {return 'legend'}
                         else {return 'legend legendPassive'}
                     })
@@ -242,7 +242,7 @@ function DrawFieldLegend(selector) {
 
         for (fid in legendTexts.fields) {
             f = fields[fid];
-            if(!data[selector].used.fields.includes(f)) {
+            if(!(data[selector].used.fields.indexOf(f) != -1)) {
                 d3.selectAll(selector + ' #' + legendIDs.field[f]).classed('legendPassive',true)
             } else {
                 d3.selectAll(selector + ' #' + legendIDs.field[f]).classed('legendPassive',false)
@@ -271,7 +271,7 @@ function DrawTypeLegend(selector){
                     .enter()
                     .append('g')
                     .attr('class',function(d) {
-                        if(data[selector].used.types.includes(d))
+                        if(data[selector].used.types.indexOf(d) != -1)
                         {return 'legend'}
                         else {return 'legend legendPassive'}
                     })
@@ -296,7 +296,7 @@ function DrawTypeLegend(selector){
 
             for (tid in legendTexts.types) {
                     t = legendTexts.types[tid];
-                    if(!data[selector].used.types.includes(t)) {
+                    if(!(data[selector].used.types.indexOf(t) != -1)) {
                         d3.selectAll(selector + ' #' + legendIDs.types[t]).classed('legendPassive',true)
                     } else {
                         d3.selectAll(selector + ' #' + legendIDs.types[t]).classed('legendPassive',false)

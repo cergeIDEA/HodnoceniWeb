@@ -11,6 +11,7 @@
             
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0" >
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge"> 
         <title>Kdo nejvíce publikuje v predátorských a místních časopisech?</title>
 
         <!-- External libraries and fonts -->
@@ -31,8 +32,8 @@
 
         <!-- own scripts -->
         <script type="text/javascript" src="my_js/charts.js"></script>
-        <script type="text/javascript" src="my_js/page.js"></script>
         <script type="text/javascript" src="my_js/controls.js"></script>
+        <script type="text/javascript" src="my_js/page.js"></script>
   
         <!-- CSS -->
         <link rel="stylesheet" type="text/css" href="css/chart.css"></link>
@@ -50,8 +51,9 @@
                         <a href="https://idea.cerge-ei.cz/" target="_blank"><img src="img/idea-white2.svg" class="logo"/></a>
                         <a href="http://av21.avcr.cz/" target="_blank" ><img src="img/strategie_red_white.svg" class="logo"/></a>
                     </div>
-                    <p>Vítek Macháček a Martin Srholec</p>
-                    <p>think-tank IDEA při CERGE-EI</p>
+                    <p>Vítek Macháček a Martin Srholec, think-tank IDEA při CERGE-EI</p>
+                    <p>Studie č. XXX/2018</p>
+                    <p>Červen 2018</p>
                 </div>
                 <center><img src="img/down-arrow2.svg" onclick="MoveOn('oCemMluvime')" class='arrow' /></center>
             </div>
@@ -60,8 +62,7 @@
                 <a class="corner" href="https://idea.cerge-ei.cz/" target="_blank" style="left:10px;"><img src="img/IDEA2.png"/></a>
                 <div class="content">
                     <center>
-                        <a class="storyPast" onclick="MoveOn('empty-intro')">Úvod</a>
-                        <a id="moCemMluvime" onclick="MoveOn('oCemMluvime')">Proč?</a>
+                        <a id="moCemMluvime" onclick="MoveOn('oCemMluvime')">Kontext</a>
                         <a id="mzJakychDat" onclick="MoveOn('zJakychDat')">Data</a>
                         <a id="mapp" onclick="MoveOn('empt-app')">Interaktivní aplikace</a>
                         <a id="mLifeSocial" onclick="MoveOn('LifeSocial')">Zajímavé obory</a>
@@ -75,7 +76,7 @@
             <div id="menuempty"></div>
             <div id="oCemMluvime" class="flow flowtext">
                 <div class="content">
-                    <h3>Světový výzkum a ten zbytek</h3>
+                    <h3>Světový výzkum a ostatní</h3>
                     <p>Hodnocení výzkumu je obtížné, ale nezbytné, protože bez zpětné vazby je snadné podlehnout sebeklamu. Nikdy nebude dokonalé, jen stěží se zavděčí všem, ale to neznamená, že nemůže prospět. </p>
                     <p>Starý vládní systém hodnocení, takzvaný <a class="modalLink" onclick="showModal('modKafemlejnek')">kafemlejnek</a>, napáchal v některých oborech velké škody. Nová <a class="modalLink" onclick="showModal('modMetodika2017')">Metodika 2017+</a> se však rozbíhá pomalu. Navíc jsou problémy, kterými se i nový systém hodnocení zabývá jen okrajově.</p>
                     <p>Nabízíme netradiční pohled. Namísto řazení časopisů podle citačního ohlasu vycházíme ze seznamu časopisů podezřelých z <a class="modalLink" onclick="showModal('modPredPrax')">predátorských praktik</a> a ze seznamu časopisů s výrazně <a class="modalLink" onclick="showModal('modMistniAutori')">místní autorskou základnou</a>.</p>
@@ -107,7 +108,7 @@
                     <div id="didyouknow" class="box helpbox">
                         <p>Body zobrazují jednotlivá <a class="modalLink" onclick="showModal('modPracoviste')">výzkumná pracoviště</a></p>
                         <p>Na osách jsou podíly článků v <a class="modalLink" onclick="showModal('modPredatori')">predátorských</a> a <a class="modalLink" onclick="showModal('modMistni')">místních</a> časopisech na celkých článcích (v %).</p>
-                        <p>Součet podílů <a class="modalLink" onclick="showModal('modPrekryv')">nemůže</a> přesáhnout 100 %, takže všechny body jsou pod diagonálou. Zvýrazněny jsou i vrstevnice pro nižší součty.</p>
+                        <p>Součet obou podílů <a class="modalLink" onclick="showModal('modPrekryv')">nemůže</a> přesáhnout 100 %, takže všechny body jsou pod diagonálou. Zvýrazněny jsou i vrstevnice pro nižší součty.</p>
                         <p>Pracoviště blízko diagonály mají většinu článků v predátorských a místních časopisech.</p>
                         <p>Pracoviště v levém dolním rohu v takových časopisech články nemají.</p>
                     </div>
@@ -125,7 +126,8 @@
             <div id="res_wrap" class="fullscreen">
                     <div class="content">
                         <div id="resbox" class="box whitebox">
-                            <p>Publikování v predátorských časopisech sužuje jen menší počet pracovišť. Naopak publikování v místních časopisech je velmi rozšířené.</p>
+                            <h4>Celkový obrázek</h4>
+                            <p>Publikování v predátorských časopisech sužuje jen menší počet pracovišť. Naopak publikování v místních časopisech je velmi rozšířené. Jen tři pracoviště mají větší podíl predátorských než místních článků.</p>
                             <p>Na první pohled jsou rovněž patrné velké rozdíly mezi obory.</p>
                         </div>
                     </div>
@@ -140,8 +142,10 @@
             <div class="fullscreen">
                     <div class="content">
                         <div class="box whitebox">
-                            <p>Zvláště ve <span style="color:#99d594"><strong>společenských vědách</strong></span> najdeme řadu pracovišť s vysokým podílem jak predátorských tak i místních publikací. Není v tomto oboru výjimkou, aby souhrnně do těchto dvou kategorií spadalo více jak 60 % či dokonce 80 % publikačního výkonu pracoviště.</p>
-                            <p>Rozdíl oproti <span style="color:#d53e4f"><strong>přírodním vědám</strong></span> je v obou kategoriích do očí bijící. Přírodovědecká pracoviště jsou v drtivé většině bezpečně ukryta v levém dolním rohu. Jen několik jich vystoupalo na výrazně vyšší vrstevnice. </p>
+                                <h4>Zásadní rozdíl</h4>
+                            <p>Zvláště ve <span style="color:#99d594">společenských vědách</span> najdeme řadu pracovišť s vysokým podílem jak predátorských tak i místních publikací. Není v tomto oboru výjimkou, aby souhrnně do těchto dvou kategorií spadalo více jak 60 % či dokonce 80 % publikačního výkonu pracoviště.</p>
+                            <p>Rozdíl oproti <span style="color:#d53e4f">přírodním vědám</span> je v obou kategoriích do očí bijící. Přírodovědecká pracoviště jsou v drtivé většině bezpečně ukryta v levém dolním rohu. Jen několik jich vystoupalo na výrazně vyšší vrstevnice. </p>
+                            <p>Nelze se divit, že přírodovědci občas nechápou, na co si jejich společenskovědní kolegové stěžují. </p>
                         </div>
                     </div>
                 </div>
@@ -150,7 +154,9 @@
 
             <div id="LifeSocial2" class="flow flowtext">
                     <div class="content">
+                    <h4>Kde je problém?</h4>
                         <p>Průšvih predátorského publikování ve společenských vědách dokládá nejenom, že se doposud nedokázaly zmátořit z desítek let trvající devastace komunistickým režimem, ale i mimořádnou míru jejich pokřivení kafemlejnkem.</p>
+                        <p>Při zpětném pohledu se jako mimořádně zrádné jeví rozhodnutí, že za články v časopisech, které jsou indexovány ve Scopusu, ale nikoliv ve Web of Science, budou podle Metodiky 2013 přidělovány body ve společenských avšak nikoliv v drtivé většině přírodních věd. Kafemlejnek tím znásobil prostor pro nahánění bodů skrze články v okrajových až podvodných časopisech.</p>
                         <p>Rozsah publikování v místních časopisech tento obrázek dokresluje. Například v oborech ekonomie, finance, business a management, do kterých spadá většina vyčnívajících pracovišť, vychází stovky zahraničních indexovaných časopisů. Nelze se vymlouvat, že ve světě není kde publikovat.</p>
                         <p>Společenské vědy by si zasloužily zvláštní péči od poskytovatelů financí na výzkumnou činnost.  Jejich povznesení na úroveň běžnou ve vyspělých zemích bude vyžadovat daleko větší úsilí než v jiných oborech. Možná se trochu zapomíná, že úroveň společenských věd úzce souvisí s kvalitou vládnutí.</p>
                         <p class="tip">Tip: Klikáním na legendu vytvoříte vlastní srovnání vybraných oborů.</p>
@@ -194,8 +200,9 @@
             <div id="empt-univav"class="fixempty fullscreen"></div>
             <div id="jakvysvetlit" class="flow flowtext">
                     <div class="content">
-                            <p>Na řadě vysokých škol vyrostly výzkumné kapacity teprve poměrně nedávno. Na problémy zadělal vládní kafemlejnek, který souběžně legitimizoval nahrazování kvality kvantitou. Na vysokých školách tento automatismus nezřídka zcela nahradil strategické řízení vědy. Někde chybí patřičná „štábní kultura“ zezdola i tlak na kvalitu seshora. Nelze se pak divit, že na některých fakultách je výsledek tristní.</p>
-                        <p>Na Akademii věd ČR má solidní výzkum s mezinárodním přesahem dlouhou tradici. Možná i proto se akademie kafemlejnkem nikdy neřídila a postupně zavedla vlastní metodiku hodnocení, která je založena na mezinárodním peer-review v odborných panelech. Predátorskému publikování takové prostředí neprospívá. </p>
+                        <h4>Čím takový rozdíl vysvětlit?</h4>
+                        <p>Na řadě vysokých škol vyrostly výzkumné kapacity teprve nedávno. Na problémy zadělal kafemlejnek, který souběžně legitimizoval nahrazování kvality kvantitou. Na vysokých školách nezřídka zcela nahradil strategické řízení vědy. Někde chybí patřičná „štábní kultura“ zezdola i tlak na kvalitu seshora. Nelze se divit, že je výsledek tristní.</p>
+                        <p>Na Akademii věd ČR má solidní výzkum s mezinárodním přesahem dlouhou tradici. Možná i proto se akademie kafemlejnkem nikdy neřídila a postupně zavedla vlastní metodiku hodnocení, která je založena na mezinárodním peer-review v odborných panelech. Predátorskému publikování takové prostředí nepřeje. </p>
                         <p>Pokud by se měla někam zacílit pozornost, byla by to právě v našem srovnání vybočující vysokoškolská pracoviště. Na problémových fakultách by bylo záhodno změnit nejenom způsob hodnocení a rozdělování peněz na výzkum, ale hlavně způsob řízení a myšlení o tom, jaký výzkum se má dělat. </p>
                         <p>Metodika 2017+ má potenciál nežádoucí motivace vyvolávané kafemlejnkem zpřetrhat. Některé vysoké školy s články převážně v predátorských a místních časopisech možná čeká nepříjemný střet s realitou. Nicméně kafemlejnek nebude minulostí, dokud se podle něho na vysokých školách budou rozdělovat peníze, což bude ještě nejméně několik let. Navíc vůbec nelze vyloučit, že podobný způsob hodnocení bude v sektoru vysokých škol pokračovat i nadále.</p>
                         <p class="tip">Tip: Kliknutím na jednotlivý bod či vyhledáním konkrétního pracoviště  podle názvu v roletkovém menu se nejen zvýrazní jeho pozice na grafu, ale rovněž se v pravém dolním okně aktivuje možnost stáhnout si seznam jeho článků v predátorských a místních časopisech. </p>
@@ -232,6 +239,7 @@
                         <a id="mail" href=""><img src="img/mail.svg" /></a>
                         <a onclick="showCopyLink()"><img src="img/link.svg" /></a>
                     </div>
+                    <p>Doporučená citace: Macháček, V. a Srholec, M. (2018) Kdo nejvíce publikuje v predátorských a místních časopisech? Studie XXX/2018. Think-tank IDEA při NHÚ AV ČR.</p>
                 </div>
             </div>
 
@@ -240,36 +248,61 @@
             <div id="modKafemlejnek" class="modal">
                 <div  class="modalBody">
                     <h3>Kafemlejnek</h3>
-                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                    <p>Princip vládního hodnocení výzkumu, pro který se vžil název „kafemlejnek“, spočíval ve sčítání bodů, které byly přiděleny podle předem známého vzorce za jednotlivé výstupy, například články ve vědeckých časopisech. Podle těchto bodů se trojčlenkou rozdělovaly peníze na institucionální podporu vědy.</p>
+                    <p>Bylo to jednoduché, transparentní a levné, ale se zrádnými vedlejšími účinky. Zásadní problém takového hodnocení spočívá v tom, že umožňuje nahrazovat kvalitu kvantitou. Za několik okrajových, ale pořád bodovaných článků, bylo v součtu možné získat stejné ohodnocení jako za špičkové výsledky, které je však řádově těžší vytvořit. Začala často bezskrupolózní honba za body. Kdo se toho neštítil, ten vyhrával, a kdo to nedělal, ten tratil.</p>
+                    <p>Pro získání většího počtu bodů bylo nutné, aby byl časopis, ve kterém článek vyšel, evidován s co největším citačním indexem ve světové citační databázi. <a href="http://www.vyzkum.cz/FrontClanek.aspx?idsekce=503762" target="_blank" >První verze kafemlejnku</a>, která byla zavedena od roku 2008, byla štědrá jen pro články indexované ve Web of Science. Od roku 2012 nový kafemlejnek, tzv. <a href="http://www.vyzkum.cz/FrontClanek.aspx?idsekce=685899" target="_blank">Metodika 2013</a>, začal rostoucí měrou bodovat i články indexované ve Scopusu.</p>
                 </div>
                 <center><a onclick="hideModal()" class="button buttonActive">Skrýt</a></center>
             </div>
             <div id="modMetodika2017" class="modal">
-                    <div  class="modalBody">
-                        <h3>Nová Metodika 2017+</h3>
-                        <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-                    </div>
-                    <center><a onclick="hideModal()" class="button buttonActive">Skrýt</a></center>
+                <div  class="modalBody">
+                    <h3>Metodika 2017+</h3>
+                    <p>Od roku 2017 byla zavedena nová metodika vládního hodnocení výzkumu, tzv. <a href="http://www.vyzkum.cz/FrontClanek.aspx?idsekce=799796" target="_blank">Metodika 2017+</a>, která opustila princip přidělování bodů za výsledky a namísto toho zavedla hodnocení výzkumných organizací v pěti modulech, včetně hodnocení výkonnosti výkonu výzkumu skrze bibliometrické analýzy, kvality vybraných výsledků, společenské relevance výzkumu, životaschopnosti organizace a rovněž její strategie a koncepce. Nový systém hodnocení se zavádí postupně a poměrně pozvolně.</p>
+                    <p>Nedostatkem nové metodiky je to, že zafixovala základnu pro rozdělení prostředků na rozvoj výzkumných organizací podle posledního výsledku kafemlejnku. Podle tohoto starého klíče se budou přinejmenším v sektoru vysokých škol rozdělovat finance ještě několik let. Za nafukování bodů tudíž poplynou peníze i nadále. Škoda, že tato základna nebyla nejdříve očištěna alespoň o výsledky v predátorských časopisech a pochybných knižních nakladatelstvích anebo ještě lépe i v nevýznamných místních časopisech.</p>
+                    <p>Metodika 2017+ se rovněž v bibliometrickém modulu až přehnaně spoléhá na vypovídací schopnost citačních indexů, jako je například Scimago Journal Rank (SJR) ve Scopusu. Snažit se posoudit vědecké časopisy na základě metrik je přitom vždy ošemetné. Proto je vhodnější brát v úvahu více relevantních indikátorů, které poskytnou plastičtější obrázek publikačního profilu pracoviště. Citační indexy totiž nejsou tak odolné vůči manipulacím, jak by se mohlo na první pohled zdát.</p>
+                    <p>Některé skupiny akademiků se již naučily citační indexy uměle nafukovat. Stačí, když se začnou vzájemně záměrně citovat. Nejsnáze se to provádí, pokud má taková „citační mafie“ indexované časopisy pod vlastní kontrolou. Konečným výsledkem mohou být časopisy s relativně vysokým citačním ohlasem, i když jejich skutečný vědecký význam je zanedbatelný. S jistým úsilím se takto protežovaný časopis dokáže prodrat do druhého a v menším oboru i prvního kvartilu, přičemž takové manipulace je velmi těžké prokázat. Bibliometrická srovnání vycházející pouze z citačních indexů časopisů pak mohou být postavena na hlavu.</p>
                 </div>
-        
+                <center><a onclick="hideModal()" class="button buttonActive">Skrýt</a></center>
+            </div>
+            <div id="modPredPrax" class="modal">
+                <div class="modalBody">
+                    <h3>Predátorské praktiky</h3>
+                    <p>Mezi nestandardní redakční praktiky rádoby vědeckých časopisů, které Jeffrey Beall používal jako kritéria pro zařazení na jeho „černé“ listiny predátorů, patří zejména publikace článku za úplatu bez řádného recenzního řízení, ale také mimo jiné slibování velmi rychlé publikace, zastřená identita či umístění vydavatele, uvádění fiktivních členů redakční rady, neřešené problémy s plagiarismem, porušováním copyrightu a publikování pochybných výsledků, název i design webových stránek nápadně podobný zavedeným časopisům, název odkazující na nepravdivou zemi původu, zveřejňování zavádějících údajů o indexaci v citačních databázích a přiděleném impakt faktoru, chvástání se smyšleným renomé anebo agresivní marketing skrze rozesílání nevyžádané pošty.</p>
+                    <center><a onclick="hideModal()" class="button buttonActive">Skrýt</a></center>
+
+                </div>
+            </div>
+            <div id="modMistniAutori" class="modal">
+                <div class="modalBody">
+                    <h3>Místní autorská základna</h3>
+                    <p>Struktura přispívajících autorů vypovídá o relevanci časopisu. Jelikož věda nezná hranic, je přirozené očekávat, že okruh autorů publikujících ve vědeckém časopisu bude poměrně rozmanitý z hlediska zemí, ze kterých pochází. Prestižní časopisy jsou zpravidla vysoce mezinárodní. Naopak časopisy, do kterých se přispěvatelé rekrutují jen z velmi úzkého okruhu, publikují důležité vědecké práce jen výjimečně. Akademici odjinud do nich nejenže nepřispívají, ale pravděpodobně je ani nečtou. Zvláštní přístup nicméně vyžadují časopisy v humanitních a uměleckých oborech, které se od podstaty zabývají problematikou místní, a pro které je tudíž užší autorská základna přirozená. Nehledě na to, že v těchto oborech vědecká komunikace probíhá spíše v knihách a jiných publikačních platformách.</p>
+                    <center><a onclick="hideModal()" class="button buttonActive">Skrýt</a></center>
+
+                </div>
+            </div>
             <div id="modPrevious" class="modal">
-                <div class="close" onclick="hideModal()"><img src="img/closeIcon3.svg" /></div>
                 <div class="modalBody">
                     <h3>Předchozí studie IDEA</h3>
-                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                    <p>Pro další podrobnosti doporučujeme předchozí IDEA studie na tato témata:</p>
+                    <p>Macháček, V. a Srholec, M. (2017) <a href="https://idea.cerge-ei.cz/files/IDEA_Studie_17_2017_Mistni_casopisy_ve_Scopusu/mobile/index.html" target="_blank">Místní časopisy ve Scopusu</a>. Studie 17/2017. Think-tank IDEA při NHÚ AV ČR.</p>
+                    <p>Macháček, V. a Srholec, M. (2017) <a href="https://idea.cerge-ei.cz/files/IDEA_Studie_6_2017_Pod_poklickou_Beallovych_seznamu/mobile/index.html" target="_blank">Pod pokličkou Beallových seznamů</a>. Studie 6/2017. Think-tank IDEA při NHÚ AV ČR.</p>
+                    <p>Macháček, V. a Srholec, M. (2017) <a href="https://idea.cerge-ei.cz/files/IDEA_Studie_16_2016_Predatorske_casopisy_ve_Scopusu/mobile/index.html" target="_blank">Predátorské časopisy ve Scopusu</a>. Studie 16/2016. Think-tank IDEA při NHÚ AV ČR.</p>
+                    <br />
+                    <p>Podívejte se na videa ze seminářů k těmto publikacím:</p>
+                    <p>18. 12. 2017 - Seminář „<a href="https://slideslive.com/38904629/ze-zivota-mistnich-vedeckych-casopisu-idea-pri-cergeei-18-12-2017" target="_blank">Ze života místních vědeckých časopisů. O štikách, kaprech a ouklejích v českém publikačním rybníku"</a>“</p>
+                    <p>2. 5. 2017 – Seminář „<a href="https://www.youtube.com/watch?v=ukWEJA__FKM" target="_blank">Pod pokličkou Beallových seznamů</a>“</p>
+                    <p>16. 11. 2016 - Seminář „<a href="https://www.youtube.com/watch?v=rvo3QHuvRCg" target="_blank">Predátorské časopisy ve Scopusu: Nová fakta v celosvětovém srovnání"</a>“</p>
+                    <br />
+                    <p>Na stránkách <a href="" target="_blank" >think-tanku IDEA</a> najdete i mnoho dalších nejen bibliometrických studií. </p>
                     <center><a onclick="hideModal()" class="button buttonActive">Skrýt</a></center>
                 </div>
             </div>
-
+            <div id="modHodnoceni2016" class="modal">
+                <div class="modalBody">
+                    <h3>Hodnocení 2016</h3>
+                    <p>Studie vychází z konsolidovaných a harmonizovaných dat vládního <a href="http://www.vyzkum.cz/FrontClanek.aspx?idsekce=799259" targe="_blank">Hodnocení 2016</a>, a to konkrétně z 1. pilíře. Databáze obsahuje veškeré badatelské výsledky, které byly přihlášeny do RIVu v období 2011 – 2015. K vědeckému článku je přiřazeno jedno nebo více výzkumných pracovišť, pod jejichž hlavičkou vznikl. Nicméně pro účely této analýzy je každý článek, který je za pracoviště přihlášen, započítán právě jednou, nehledě na případné spoluautorství a podíl tohoto pracoviště na vzniku výsledku.</p>
+                </div>
+            </div>
             <div id="modPredatori" class="modal">
                 <div class="modalBody">
                     <h3>Predátorské časopisy</h3>
