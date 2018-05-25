@@ -92,8 +92,8 @@
                     <h3>Z jakých dat vycházíme?</h3>
                     <p>Základem je databáze článků ve vědeckých časopisech z vládního <a class="modalLink" onclick="showModal('modHodnoceni2016')">Hodnocení 2016</a>, která zahrnuje údaje z RIVu za období 2011-2015.</p>
                     <p><a class="modalLink" onclick="showModal('modPredatori')">Predátorské časopisy</a> jsou určeny podle „černých“ listin časopisů a vydavatelství Jeffreyho Bealla z dubna 2016 (s výjimkou časopisů vydávaných Frontiers Research Foundation). Použity jsou pouze predátorské časopisy indexované v citační databázi <a class="modalLink" onclick="showModal('modScopus')">Scopus</a>.</p>
-                    <p>Místní časopisy jsou určeny podle toho, odkud pochází autoři do nich přispívající. K tomu jsou použity údaje z citační databáze <a class="modalLink" onclick="showModal('modScopus')">Scopus</a> v období 2011-2015. Za místní považujeme časopisy s alespoň třetinovým podílem článků od autorů z Česka a Slovenska.</p>
-                    <p>Z toho vyplývá, že do analýzy vstupují pouze články v časopisech indexovaných ve <a class="modalLink" onclick="showModal('modScopus')">Scopusu</a>, které jsou evidované v RIVu. Sledovaný časopis však může být souběžně indexován i ve Web of Science. </p>
+                    <p><a class="modalLink" onclick="showModal('modMistni')">Místní časopisy</a> jsou určeny podle toho, odkud pochází autoři do nich přispívající. K tomu jsou použity údaje z citační databáze <a class="modalLink" onclick="showModal('modScopus')">Scopus</a> v období 2011-2015. Za místní považujeme časopisy s alespoň třetinovým podílem článků od autorů z Česka a Slovenska.</p>
+                    <p>Z toho vyplývá, že do analýzy vstupují pouze články v <a class="modalLink" onclick="showModal('modScopusWos')">časopisech indexovaných ve Scopusu</a>, které jsou evidované v RIVu. Sledovaný časopis však může být souběžně indexován i ve Web of Science. </p>
                     <p>Výzkumné organizace byly rozřazeny do základních <a class="modalLink" onclick="showModal('modFOS')">FOS oborů</a> podle jejich převažující činnosti a publikačního výstupu.</p>
                 </div>
         </div>
@@ -108,7 +108,7 @@
                     <div id="didyouknow" class="box helpbox">
                         <p>Body zobrazují jednotlivá <a class="modalLink" onclick="showModal('modPracoviste')">výzkumná pracoviště</a></p>
                         <p>Na osách jsou podíly článků v <a class="modalLink" onclick="showModal('modPredatori')">predátorských</a> a <a class="modalLink" onclick="showModal('modMistni')">místních</a> časopisech na celkých článcích (v %).</p>
-                        <p>Součet obou podílů <a class="modalLink" onclick="showModal('modPrekryv')">nemůže</a> přesáhnout 100 %, takže všechny body jsou pod diagonálou. Zvýrazněny jsou i vrstevnice pro nižší součty.</p>
+                        <p>Součet obou podílů <a class="modalLink" onclick="showModal('modPrekryv')">nemůže přesáhnout 100 %</a>, takže všechny body jsou pod diagonálou. Zvýrazněny jsou i vrstevnice pro nižší součty.</p>
                         <p>Pracoviště blízko diagonály mají většinu článků v predátorských a místních časopisech.</p>
                         <p>Pracoviště v levém dolním rohu v takových časopisech články nemají.</p>
                     </div>
@@ -145,7 +145,7 @@
                                 <h4>Zásadní rozdíl</h4>
                             <p>Zvláště ve <span style="color:#99d594">společenských vědách</span> najdeme řadu pracovišť s vysokým podílem jak predátorských tak i místních publikací. Není v tomto oboru výjimkou, aby souhrnně do těchto dvou kategorií spadalo více jak 60 % či dokonce 80 % publikačního výkonu pracoviště.</p>
                             <p>Rozdíl oproti <span style="color:#d53e4f">přírodním vědám</span> je v obou kategoriích do očí bijící. Přírodovědecká pracoviště jsou v drtivé většině bezpečně ukryta v levém dolním rohu. Jen několik jich vystoupalo na výrazně vyšší vrstevnice. </p>
-                            <p>Nelze se divit, že přírodovědci občas nechápou, na co si jejich společenskovědní kolegové stěžují. </p>
+                            <p>Nelze se divit, že přírodovědci občas nechápou, na co si jejich společenskovědní kolegové v oblasti hodnocení vědy stěžují. </p>
                         </div>
                     </div>
                 </div>
@@ -213,12 +213,11 @@
             <div id="conclusion" class="flow flowtext">
                 <div class="content">
                     <h3>Pár slov závěrem</h3>
-                    <p>Jistě se najdou lidé, kteří s těmito výsledky budou polemizovat. Někteří budou poukazovat na to, že konkrétní časopis je sice místní či predátorský, ale to neznamená, že je nekvalitní nebo irelevantní. Jiní nás budou upozorňovat na to, že ani v zahraničních nepredátorských časopisech  se nepublikují jen samé skvosty a kvalita recenzního řízení také není žádná sláva. A koneckonců jistě mohou mít v konkrétních případech pravdu.</p>
-                    <p>Koneckonců nebreme v úvahu články v jiných „pozoruhodných“ (chorvatských, litevských, estonských,  polských či rumunských) časopisech, které sice podle zvolené definice nevychází jako místní, ale z hlediska obsahu jsou velmi podobné. Na některých pracovištích jsou i takových článků nezanedbatelné počty. </p>
+                    <p>PRVNÍ ODSTAVEC DOPLNÍME!</p>
+                    <p>Nebereme v úvahu články v jiných „pozoruhodných“ <a class="modalLink" onclick="showModal('modEastern')">časopisech ze zemí bývalého východního bloku</a>, které sice podle zvolené definice nevychází jako místní, ale z hlediska obsahu také není žádná sláva. Na některých pracovištích jsou i takových článků nezanedbatelné počty. </p>
                     <p>Jelikož srovnání vychází z databáze Hodnocení 2016, nejsou v analýze zohledněny články, které sice vyšly v časopisech indexovaných ve Scopusu, ale nebyly evidovány v RIVu. Například se může jednat o predátorské články, jejichž publikaci sice pracoviště nezabránilo, ale rozhodlo se je do RIVu nenahlásit (anebo později vymazat). </p>
-                    <p>Nicméně to nic nemění na hlavních poznatcích, které z této studie vycházejí – totiž, že zejména na vysokých školách a zejména ve společenských vědách je před námi velká výzva, se kterou se musí hodnotitelé a manažeři výzkumu utkat. Právě tyto obory jsou totiž klíčové pro největší brzdu naší konkurenceschopnosti – totiž kvalitu veřejných institucí.</p>
-                    <p></p>
-                    <p class="tip">Tip: doporučujeme nad aplikací strávit delší čas a dopodrobna prozkoumat obory a pracoviště, které jsou Vám blízké.</p>
+                    <p>Nicméně to nic nemění na hlavních poznatcích, které z této studie vycházejí – že zejména na vysokých školách a ve společenských vědách je před námi velká výzva, se kterou se musí hodnotitelé a manažeři výzkumu utkat. Právě tyto obory jsou totiž klíčové pro největší brzdu naší konkurenceschopnosti – totiž kvalitu veřejných institucí.</p>
+                    <p class="tip">Tip: Doporučujeme nad aplikací strávit delší čas a dopodrobna prozkoumat obory a pracoviště, které jsou Vám blízké.</p>
                 </div>
             </div>
             <div id="empt-conclusion"class="fixempty fullscreen"></div>
@@ -301,14 +300,17 @@
                 <div class="modalBody">
                     <h3>Hodnocení 2016</h3>
                     <p>Studie vychází z konsolidovaných a harmonizovaných dat vládního <a href="http://www.vyzkum.cz/FrontClanek.aspx?idsekce=799259" targe="_blank">Hodnocení 2016</a>, a to konkrétně z 1. pilíře. Databáze obsahuje veškeré badatelské výsledky, které byly přihlášeny do RIVu v období 2011 – 2015. K vědeckému článku je přiřazeno jedno nebo více výzkumných pracovišť, pod jejichž hlavičkou vznikl. Nicméně pro účely této analýzy je každý článek, který je za pracoviště přihlášen, započítán právě jednou, nehledě na případné spoluautorství a podíl tohoto pracoviště na vzniku výsledku.</p>
+                    <center><a onclick="hideModal()" class="button buttonActive">Skrýt</a></center>
+
                 </div>
             </div>
             <div id="modPredatori" class="modal">
                 <div class="modalBody">
                     <h3>Predátorské časopisy</h3>
-                    <p>Tzv. predátorské časopisy zneužívají placený open-access přístup k publikaci vědy a akademikům za poplatek nabízí publikaci článků bez pořádného recenzního řízení. Tyto časopisy mají k profesionalitě velmi daleko a pro akademiky by měly představovat jakousi “no-go zónu“. Spíše než kariérní postup by po publikaci v těchto časopisech měla následovat ostuda. Pokud se na dané instituci v takových časopisech publikuje v masovém měřítku, je zjevné, že hodnocení vědy v této instituci selhává.</p>
-                    <p>Seznam predátorských časopisů vychází ze slavného blogu Jeffrey Bealla (verze z dubna 2016) a původně byl zpracován ve studii IDEA <a href="https://idea.cerge-ei.cz/zpravy/predatorske-casopisy-ve-scopusu" target="_blank">Predátorské časopisy ve Scopusu</a>, kde je také popsán podrobný způsob jeho získání.  Seznam predátorských časopisů použitý v této studii je k dispozici <a>zde</a>.</p> 
-                    <p>Beallovy seznamy jsou často kritizovány za přílišnou subjektivitu – rozhodnutí o zařazení časopisu často není výsledkem rigidní analýzy, ale osobním názorem jednoho knihovníka v Coloradu, které není podloženo solidními, porovnatelnými a ověřenými daty. S touto kritikou lze jen souhlasit, a proto vznikla studie IDEA Pod pokličkou Beallova seznamu. Podle ní výrazná většina časopisů na Beallově seznamu pro akademickou komunitu skutečně příliš relevantní není, ale existují výjimky jako vydavatelství Frontiers. Jejich zařazení v akademické obci vyvolalo vlnu nevole a tak jejich časopisy nebyly pro potřeby této studie zařazeny jako predátorské. </p>
+                    <p>Predátorské časopisy zneužívají model publikování vědeckých poznatků založený na autory placeném otevřeném přístupu. Předstírají, že jsou vědeckými časopisy. Nicméně akademikům za poplatek nabízí rychlou publikaci článků bez pořádného či žádného recenzního řízení. Nejhorší z nich za úplatu otisknou téměř cokoliv. Pro akademiky, kteří dbají o svoji pověst, je lepší se časopisům podezřelým z predátorských praktik zdaleka vyhnout.</p>
+                    <p>Jeffrey Beall, knihovník z University of Colorado, na svém blogu sestavoval přehledy „potenciálně“ predátorských časopisů a vydavatelství. Beallovy seznamy začaly být v praxi hojně využívány, protože se jednalo o jediný souhrnný zdroj, pomocí kterého bylo možné případné predátorství časopisu prověřit. Jeffrey Beall tento blog překvapivě zrušil v lednu 2017. Problém s predátorským publikováním však nezmizel, ba naopak se stal ještě palčivějším.</p>
+                    <p>Seznam predátorských časopisů použitý v této studii vychází z Beallova blogu (verze z dubna 2016) a původně byl zpracován pro předchozí studii IDEA s názvem <a href="https://idea.cerge-ei.cz/files/IDEA_Studie_16_2016_Predatorske_casopisy_ve_Scopusu/mobile/index.html" target="_blank">Predátorské časopisy ve Scopusu</a>, kde je také podrobně popsáno, jak byl vytvořen. Seznam časopisů podezřelých z predátorství, které jsou zároveň indexovány v citační databázi Scopus, je k dispozici ke stažení <a href="#" target="_blank">zde</a>.</p>
+                    <p>Beallovy seznamy byly kritizovány za přílišnou subjektivitu. Přestože <a href="https://beallslist.weebly.com/uploads/3/0/9/5/30958339/criteria-2015.pdf" target="_blank">Beall uvádí podrobná kritéria</a>, spíše než na solidních datech bylo jeho hodnocení často postaveno na osobním názoru, e-mailových zprávách a dojmech. Studie IDEA s názvem <a href="https://idea.cerge-ei.cz/files/IDEA_Studie_6_2017_Pod_poklickou_Beallovych_seznamu/mobile/index.html" target="_blank" >Pod pokličkou Beallova seznamu </a>ázala, že zejména zařazení Frontiers Research Foundation na seznam predátorských vydavatelství bylo značně rozporuplné. Pro potřeby této studie tudíž časopisy spadající pod hlavičku tohoto vydavatelství nejsou považovány za predátorské. Až na tuto jednu výjimku se jinak držíme Beallova blogu.</p>
                     <!-- TODO PRIDAT SEZNAM PREDATORSKYCH CASOPISU!!!! -->
                     <center><a onclick="hideModal()" class="button buttonActive">Skrýt</a></center>
                 </div>
@@ -317,13 +319,49 @@
             <div id="modMistni" class="modal">
                 <div class="modalBody">
                     <h3>Místní časopisy</h3>
-                    <p>Vědecké časopisy jsou vydávány proto, aby usnadnily sdílení vědeckých výsledků. Jejich cílem by tak mělo být rozšiřovat své výsledky mezi nejširší okruh čtenářů. Místním časopisům se tyto cíle naplňovat nedaří a podezřele často publikují články od autorů úzkého okruhu. Pokud do časopisu mezinárodní autoři nepřispívají, s nejvyšší pravděpodobností ho ani nečtou – a to ani v případě, že je publikován v angličtině. Instituce, jejichž autoři ve velkém publikují v místních časopisech, tak selhávají ve snaze svůj výzkum předávat co nejširšímu publiku.</p>
-                    <p>Za místní časopisy považujeme všechny časopisy ve Scopusu, u nichž alespoň třetina článků (typ Articles) má alespoň jednoho z autorů České republiky nebo ze Slovenska. Seznam těchto časopisů je k dispozici zde.</p>
-                    <p>Pravidlo, že špičkový výzkum by měl být mezinárodní, podle nás platí s výjimkou humanitních oborů. Českou historii, český jazyk a další lokálně zaměřené otázky mohou samozřejmě být legitimně studovány skrze lokální výzkumníky. Nicméně jsme přesvědčeni, že ve většině společenských věd již toto pravidlo neplatí. Drtivá většina ekonomických, společenských, ale i právních otázek jsou relevantní nejen pro české akademické publikum, ale také pro publikum světové a příslušní výzkumníci by se měly vztahovat zejména k akademickému diskurzu probíhajícím v zahraničí.</p>
-                    <p>Je dobré mít na paměti malou metodologickou chybu. Články, které vznikly při spolupráci mezi českými a slovenskými vědci, jsou při výpočtu započítány několikrát. Časopisy, které často publikují česko-slovenské spolupráce tak mohou působit jako místněji zaměřené než reálně jsou. Je ale jen těžko představitelné, že by tento problém vedl ke zcela odlišnému výsledku místního zaměření instituce. </p>
+                    <p>Za místně orientované považujeme časopisy, které hojně publikují články od autorů z Česka anebo Slovenska. Česká věda je historicky propojena se slovenskou, a proto autory z obou zemí bereme dohromady. Na jaké hodnotě narýsovat dělicí čáru mezi místním a mezinárodním časopisem je do jisté míry arbitrární a liší se to podle oborů. Pro zjednodušení považujeme časopis za místní, pokud alespoň třetina článků v něm publikovaných má autora ze zemí bývalého Československa. Odpovídá to tomu, že v podstatě v každém vydání časopisu je v průměru nejméně jeden článek od místního autora. Podrobnější rozbor otázek okolo místního zaměření časopisů je v předchozí studii IDEA na toto téma s názvem „<a href="https://idea.cerge-ei.cz/files/IDEA_Studie_17_2017_Mistni_casopisy_ve_Scopusu/mobile/index.html" target="_blank">Místní časopisy ve Scopusu</a>“.</p>
+                    <p>Seznam indexovaných časopisů byl získán z takzvaného <a href="https://www.elsevier.com/solutions/scopus/content/content-policy-and-selection" target="_blank">Scopus Source List</a> (veze z října 2017). Data o struktuře přispívajících autorů podle zemí působení byla pomocí počítačového skriptu stažena pro všechny indexované časopisy skrze jejich identifikační kód ISSN přímo z API databáze <a href="https://www.scopus.com/" target="_blank">Scopus</a>. Data byla získána za výsledky typu „Articles“ publikované v letech 2011-2015. Do další analýzy byly zařazeny pouze časopisy, které měly v tomto období indexováno nejméně 10 článků se známou (nikoliv „undefined“) zemí působení autorů. Ke stažení dat došlo v únoru 2018. Seznam místních časopisů použitý v této studii je k dispozici zde.</p>
+                    <p>Na rozdíl od předchozí studie „<a href="https://idea.cerge-ei.cz/files/IDEA_Studie_17_2017_Mistni_casopisy_ve_Scopusu/mobile/index.html" target="_blank">Místní časopisy ve Scopusu</a>“ jsou tudíž použita data ze všech zhruba 34 tis. časopisů s relevantními daty bez ohledu na to, ve které zemi je časopis vydáván. Časopis je tak považován za místní, pokud je jeho autorská základna výrazně česká a slovenská, i když jeho vydavatel sídlí v třeba v Německu, Řecku anebo v Albánii. Zhruba <span style="color:red">xxx%</span> místních časopisů podle výše uvedené definice má formálně vydavatele jinde než v Česku a na Slovensku. Jedná se zejména o časopisy pod hlavičkou německého vydavatelství De Gruyter, <span style="color:red">xxx, xxx anebo xxx.</span></p>
+                    <p>Používáme předpřipravená souhrnná data za časopis jako celek. Pokud na článku spolupracovali autoři z různých zemí, jsou jejich afilace do těchto dat započítány za každou zemi zvláště. S tím je spojen problém vícenásobného započítání. Při sčítání počtu článků z různých zemí do větších geografických celků totiž budou opakovaně započítány společné články od autorů právě z těchto zemí. Například pokud má článek spoluautory z Česka i ze Slovenska bude při snaze dobrat se podílu článků v časopise od autorů za obě země dohromady započten dvakrát. Pokud bychom pracovali přímo s údaji za jednotlivé články, mohli bychom výsledky o tato překrytí očistit, ale to by vyžadovalo zpracování řádově většího objemu dat. Nicméně je nepravděpodobné, že by tento zádrhel vedl k zásadnímu zkreslení výsledků.</p>
                     <center><a onclick="hideModal()" class="button buttonActive">Skrýt</a></center>
                 </div>
             </div>
+            <div id="modScopus" class="modal">
+                <div class="modalBody">
+                    <h3>Scopus</h3>
+                    <p>Citační databáze <a href="https://www.scopus.com/" target="_blank">Scopus</a> je vlastněná vydavatelským domem Elsevier. Založena byla v roce 2004. Od té doby v ní bylo celkem indexováno přes 36 000 časopisů, z nichž je necelých 23 000 stále aktivních. Neaktivní časopisy jsou ve velké většině předchůdci v současnosti aktivních časopisů. Scopus indexuje zhruba o polovinu více časopisů než Web of Science, a to zejména díky podstatně lepšímu pokrytí méně významných periodik, včetně několikanásobně většího počtu konkrétně predátorských a místních časopisů. </p>
+                    <p>Pro indexaci ve Scopusu by měl časopis plnit určité <a href="https://www.elsevier.com/solutions/scopus/content/content-policy-and-selection" target="_blank">minimální požadavky</a> na kvalitu, relevanci a citační ohlas. Časopis tím získává punc vědeckosti, který je potom často slepě používán v  hodnocení. Nicméně mezi indexovanými časopisy panují obrovské rozdíly v tom, do jaké míry přispívají k rozvoji vědeckého poznání. Samotná indexace někdy neznamená o mnoho víc, než že má časopis zveřejněná pravidla recenzního řízení, názvy a abstrakty článků v angličtině a obsah on-line. Kromě prestižních časopisů, ve kterých vychází zásadní práce, je indexováno i mnoho okrajových až pochybných titulů.</p>
+                    <center><a onclick="hideModal()" class="button buttonActive">Skrýt</a></center>
+                </div>
+            </div>
+            <div id="modScopusWos" class="modal">
+                <div class="modalBody">
+                    <h3>Pouze články ve Scopusu</h3>
+                    <p>Zaměřujeme se na články v časopisech, které jsou prokazatelně indexovány v citační databázi Scopus. Konkrétně z hlediska kategorií RIVu se jedná o druhy výsledků J<sub>imp</sub> a J<sub>SC</sub> podle <a href="http://www.vyzkum.cz/FrontClanek.aspx?idsekce=685899&ad=1&attid=752948" target="_blank">Metodiky 2013</a>, přičemž J<sub>imp</sub> jsou do analýzy zařazeny, pokud je daný časopis indexován souběžně ve Scopusu i Web of Science, což ovšem platí ve většině případů. </p>
+                    <center><a onclick="hideModal()" class="button buttonActive">Skrýt</a></center>
+                </div>
+                </div>
+            <div id="modFOS" class="modal">
+                <div class="modalBody">
+                    <h3>Přiřazení pracovišť k oborům</h3>
+                    <p>Jednotlivá pracoviště byla rozřazena do širokých vědních oborů dle klasifikace <a href="https://www.oecd.org/science/inno/38235147.pdf" target="_blank">Fields of Science</a> (FOS). Ta rozlišuje mezi 6 základními obory – Technické vědy (<i>Engineering and Technology</i>), Zemědělské vědy (<i>Agricultural and Veterinary Sciences</i>), Humanitní vědy (<i>Humanities and the Arts</i>), Lékařské vědy (<i>Medical and Health Sciences</i>), Přírodní vědy (<i>Natural Sciences</i>) a Společenské vědy (<i>Social Sciences</i>).</p>
+                    <p>Mnoha pracoviště se ale řadí někam na pomezí. Zabývá se např. fakulta biomedicínského inženýrství spíše lékařskými, technickými nebo přírodními vědami? Proto přiřazování proběhlo dle následujícího klíče:</p>
+                    <p>1) Pracovištím byl nejprve přiřazen tzv. <a href="http://www.vyzkum.cz/FrontClanek.aspx?idsekce=1374" target="_blank">obor RIV</a> (celkem 123 kategorií) podle toho, ve kterém má přihlášeno nejvíce Scopusových článků.</p>
+                    <p>2) Tento úzký obor byl přiřazen k širokým oborům FOS pomocí <a href="http://www.vyzkum.cz/FrontClanek.aspx?idsekce=799796&ad=1&attid=836941" target="_blank">oficiálního převodníku</a> sestaveného RVVI. Obory přiřazené k více širokým oborům, byly rozhodnuty individuálně.</p>
+                    <p>3) U každého z pracovišť pak bylo manuálně zkontrolováno, zda jeho obor odpovídá také oboru naznačeného jeho názvem. Pokud nikoliv, je zaměření manuálně změněno na široký obor, který dle názoru autorů nejlépe odpovídá jejich zaměření. Například pedagogické fakulty jsou považovány za společenskovědní, byť své články nejčastěji přihlašují v oboru přírodních věd.</p>
+                    <center><a onclick="hideModal()" class="button buttonActive">Skrýt</a></center>
+
+                </div>
+            </div>
+            <div id="modPrekryv" class="modal">
+                <div class="modalBody">
+                    <h3>Součet obou podílů nemůže přesáhnout 100 %</h3>
+                    <p>Byť tomu z principu nic nebrání, nestává se, že by časopis byl jak predátorský, tak místní zároveň. Stalo se tak jen u dvou časopisů – <i>Interdisciplinary Toxicology</i> a <i>International Journal of Mathematical Models and Methods in Applied Sciences</i>. Díky tomu součet těchto podílů nemůže přesáhnout 100 %, pokud by pracoviště v extrémní míře nepublikovalo ve výše zmíněných časopisech.</p>
+                    <center><a onclick="hideModal()" class="button buttonActive">Skrýt</a></center>
+
+                </div>
+            </div>
+    
             <div id="modPracoviste" class="modal">
                 <div class="modalBody">
                     <h3>Pracoviště a organizace</h3>
@@ -333,6 +371,18 @@
                     <center><a onclick="hideModal()" class="button buttonActive">Skrýt</a></center>
                 </div>
             </div>
+
+            <div id="modEastern" class="modal">
+                <div class="modalBody">
+                    <h3>Články ve východoevropských časopisech</h3>
+                    <p>To, že článek vyšel v časopise, který nespadá ani mezi místní ani mezi predátorské ještě neznamená, že je publikován v kvalitním mezinárodním časopise. Čas od času se například objevují <a href="http://metodikahodnoceni.blogspot.cz/2012/05/citacni-bratstva.html" target="_blank">zprávy</a> o „lokálních východoevropských časopisech“ – tedy takových, kde se vzájemně publikují a citují vědci ze zemí bývalého bloku. </p>
+                    <p>Použitá data ukazují, že i v takových časopisech se na některých institucích publikuje nečekaně často. Například zaměstnanci Fakulty metalurgie a materiálového inženýrství na VŠB-TUO publikovali přes 40 % svých článků v časopisech, které mají více než dvě třetiny autorů ze zemí východní Evropy kromě Česka a Slovenska. Téměř polovina z nich byla otištěna v jediném časopise chorvatské provenience Metalurgija = Metallurgy.</p>
+                    <p>Tendence k publikování napříč pracovišti v takových časopisech je podobná jako u predátorských – nejčastěji se vyskytuje mezi technickými a společenskými vědami.</p>
+                    <center><a onclick="hideModal()" class="button buttonActive">Skrýt</a></center>
+
+                </div>
+            </div>
+                
             <div id="modRozliseni" class="modal">
                     <div class="modalBody">
                         <h3>Nízké rozlišení</h3>
