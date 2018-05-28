@@ -22,11 +22,11 @@ function loadJS() {
 }
 
 function checkResolution() {
-
     w = $(window).width()
-    if (w<1201) {
-        $('#myurl2').val(bitly)
-        showModal('modRozliseni')
+    if (w<999) {
+        $('#myurl2').val(weblink);
+        showModal('modRozliseni');
+        $('#modalWrap').off('click');
     }
 }
 

@@ -3,7 +3,6 @@ var bitly = 'https://bit.ly/2s4oahD'
 var webtitle = "Kdo nejvíce publikuje v predátorských a místních časopisech?";
 
 
-
 var orgs = [],insts = [], includedInsts = [];
 
 function sortMenudata() {

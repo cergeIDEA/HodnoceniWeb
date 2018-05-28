@@ -14,7 +14,7 @@ body {
 #everything {
     position: relative;
     background-color:white;
-    width:100%;
+    width:99vw;
     min-width:1200px;
     margin:auto;
 }
@@ -70,7 +70,6 @@ h4 {
 
 .flowimage {
     width:100%;
-
 }
 
 /* Clear floats after the columns */
