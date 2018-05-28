@@ -253,19 +253,10 @@ function hideModal() {
 window.onclick = function(event) {
     modal = document.getElementById('modalWrap')
     if (event.target == modal) {
-        hideModal();
+        id = $('.modalActive').attr('id')
+        if(id != 'modRozliseni') {
+            hideModal();
+        }
     }
 }
 
-
-
- function fb_share() {
-     //TODO add link and image
-     window.open( 
-        'http://www.facebook.com/sharer.php?s=100&p[title]=a title&p[summary]=a description &p[url]=http://www.linkhere.com&p[images][0]=http://www.linkhere.com/image.jpg',
-        'facebook-share-dialog', 
-        'width=626,height=436'
-    ); 
-
-  }
-  
