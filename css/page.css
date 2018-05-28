@@ -94,6 +94,7 @@ h4 {
 .fix {
     position:fixed;
     overflow-x:auto;
+    margin:auto;
     z-index: 1;
     background-color:white;
     opacity:0;
@@ -148,11 +149,11 @@ h4 {
 
 
 #emptrect {
-    height:25vh;
+    height:30px;
     width:100vw;
     margin: 10vh auto;
     box-shadow: inset 0px 0px 20px 4px #d1d4d3;
-    background-color:#E8EAE9;
+    background-color:white;
 
 }
 
@@ -189,7 +190,6 @@ h4 {
 #menu .content a.storyPast {
     border-top: 3px solid #bb133e;
 }
-
 
 .floaty {
     position: relative;
@@ -251,7 +251,6 @@ h4 {
     box-sizing: border-box;
 }
 
-
 #closedescbox {
     cursor:pointer;
     position:absolute;
@@ -278,7 +277,6 @@ h4 {
 
 .arrow {
     cursor: pointer;
-
     width:50px;
     height:50px;
 }
@@ -298,10 +296,6 @@ h4 {
     height:40px;
     margin:25px;
     cursor: pointer;
-}
-
-#app {
-    /* background-color:rgba(127,179,217,.3); */
 }
 
 #dyk_wrap {

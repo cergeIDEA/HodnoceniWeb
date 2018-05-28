@@ -84,12 +84,20 @@ function generateDataObject(selector,defaultfields,defaulttypes,fullLayout) {
 function generateElementStructure(selector) {
     var parent = $(selector);
 
+    $('.chartcontainer').css({width:sizes.chart.width + 480})
+
     parent.empty();
     parent = createSelect2(selector)
     parent.append($('<div />', {id:'chart'}));
 
     chartdiv = $('#chart');
 
+
+    notes = $('<div />', {id:'chartNotes',class:'notes'})
+    notes.append('<p>Pozn.: Do analýzy jsou zařazeny <a class="modalLink" onclick="showModal(\'modScopusWos\')">články ve Scopusu</a> zaznamenané v RIVu v letech 2011 - 2015. Pracoviště byla rozřazena do <a class="modalLink" onclick="showModal(\'modFOS\')">FOS oborů</a>. Zdroj: <a class="modalLink" onclick="showModal(\'modScopus\')">Scopus</a>, <a class="modalLink" onclick="showModal(\'modHodnoceni2016\')">Hodnocení 2016</a> a <a class="modalLink" onclick="showModal(\'modPredatori\')">Beallovy seznamy</a></p>')
+    notes.css('width',sizes.chart.width)    
+
+    parent.append(notes)
 
     $('#didyouknow').css('left',sizes.chart.width+50)
     $('#descbox').css('left',sizes.chart.width+50)
