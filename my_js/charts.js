@@ -94,7 +94,7 @@ function generateElementStructure(selector) {
 
 
     notes = $('<div />', {id:'chartNotes',class:'notes'})
-    notes.append('<p>Pozn.: Do analýzy jsou zařazeny <a class="modalLink" onclick="showModal(\'modScopusWos\')">články ve Scopusu</a> zaznamenané v RIVu v letech 2011 - 2015. Pracoviště byla rozřazena do <a class="modalLink" onclick="showModal(\'modFOS\')">FOS oborů</a>. Zdroj: <a class="modalLink" onclick="showModal(\'modScopus\')">Scopus</a>, <a class="modalLink" onclick="showModal(\'modHodnoceni2016\')">Hodnocení 2016</a> a <a class="modalLink" onclick="showModal(\'modPredatori\')">Beallovy seznamy</a></p>')
+    notes.append('<p>Pozn.: Do analýzy jsou zařazeny <a class="modalLink" onclick="showModal(\'modScopusWos\')">články ve Scopusu</a> zaznamenané v RIVu v letech 2011 - 2015. Pracoviště byla rozřazena do <a class="modalLink" onclick="showModal(\'modFOS\')">FOS oborů</a>; Zdroj: <a class="modalLink" onclick="showModal(\'modScopus\')">Scopus</a>, <a class="modalLink" onclick="showModal(\'modHodnoceni2016\')">Hodnocení 2016</a> a <a class="modalLink" onclick="showModal(\'modPredatori\')">Beallovy seznamy</a></p>')
     notes.css('width',sizes.chart.width)    
 
     parent.append(notes)
@@ -314,9 +314,9 @@ function DrawTypeLegend(selector){
 };
 
 function GenerateGlobals() {
-    margin = {top:10,right:20,bottom:30,left:70}
-    height = sizes.chart.height - margin.left - margin.right;
-    width = sizes.chart.width - margin.top - margin.bottom;
+    margin = {top:10,right:-25,bottom:50,left:70}
+    height = sizes.chart.height - margin.top - margin.bottom;
+    width = sizes.chart.width - margin.left - margin.right;
 
     xScale = d3.scaleLinear()
         .range([0,width])
@@ -352,7 +352,7 @@ function GenerateGlobals() {
         .append('svg')
         .attr('overflow','hidden')
         .attr('id','svg')
-        .attr('width',sizes.chart.width +50 + 'px')
+        .attr('width',sizes.chart.width + 50+ 'px')
         .attr('height',sizes.chart.height + 'px')
         .append('g')
         .attr('transform','translate(' + d3elems.margin.left + ',' + d3elems.margin.top + ')');
