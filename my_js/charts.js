@@ -94,7 +94,7 @@ function generateElementStructure(selector) {
 
 
     notes = $('<div />', {id:'chartNotes',class:'notes'})
-    notes.append('<p>Pozn.: Do analýzy jsou zařazeny <a class="modalLink" onclick="showModal(\'modScopusWos\')">články ve Scopusu</a> zaznamenané v RIVu v období 2011 - 2015. Pracoviště byla rozřazena do <a class="modalLink" onclick="showModal(\'modFOS\')">FOS oborů</a>; Zdroj: <a class="modalLink" onclick="showModal(\'modScopus\')">Scopus</a>, <a class="modalLink" onclick="showModal(\'modHodnoceni2016\')">Hodnocení 2016</a> a <a class="modalLink" onclick="showModal(\'modPredatori\')">Beallovy seznamy</a>.</p>')
+    notes.append('<p>Pozn.: Do analýzy jsou zařazeny <a class="modalLink" onclick="showModal(\'modScopusWos\')">vědecké články ve Scopusu</a> zaznamenané v RIVu v období 2011 - 2015. Pracoviště byla rozřazena do <a class="modalLink" onclick="showModal(\'modFOS\')">FOS oborů</a>; Zdroj: <a class="modalLink" onclick="showModal(\'modScopus\')">Scopus</a>, <a class="modalLink" onclick="showModal(\'modHodnoceni2016\')">Hodnocení 2016</a> a <a class="modalLink" onclick="showModal(\'modPredatori\')">Beallovy seznamy</a>.</p>')
     notes.css('width',sizes.chart.width)    
 
     parent.append(notes)

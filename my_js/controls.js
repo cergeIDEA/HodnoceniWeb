@@ -1,6 +1,6 @@
 var weblink = 'https://vitekzkytek.github.io/HodnoceniWeb/' //TODO smaz az budu znat adresu!!!!
 var bitly = 'https://bit.ly/2s4oahD'
-var webtitle = "Kdo nejvíce publikuje v predátorských a místních časopisech?";
+var webtitle = "Kde se nejvíce publikuje v predátorských a místních časopisech?";
 
 
 var orgs = [],insts = [], includedInsts = [];
