@@ -39,7 +39,7 @@ body {
 }
 
 h1 {
-    font-size: 7vh;
+    font-size: 6.5vh;
     /* font-family: Fazeta ;, Cambria, Georgia, "Times New Roman", serif */
     font-weight: 600;
     color: #bb133e;
@@ -54,7 +54,7 @@ h3{
     color:#bb133e;
     text-align: center;
     margin:30px;
-    padding-bottom: 10vh;
+    padding-bottom: 5vh;
 }
 
 h4 {
@@ -133,13 +133,13 @@ h4 {
 }
 
 .flowtext {
-    padding-top:15vh;
+    padding-top:10vh;
     padding-bottom:20vh;
 }
 
 .flowtitle {
     padding-top:10vh;
-    padding-bottom:10;
+    padding-bottom:7vh;
 }
 
 .flow p {
@@ -256,7 +256,7 @@ h4 {
 #intro {
     background-color:#BB133E;
     text-align:center;
-    padding-top:5vh;
+    padding-top:4vh;
     color: white;
     overflow-y:hidden;
 }
