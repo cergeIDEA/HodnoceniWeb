@@ -276,6 +276,7 @@ h4 {
     position: relative;
     background-color:#E8EAE9;
     text-align:center;
+    min-height: 94vh;
     padding-top:10vh;
     color: black;
     box-sizing: border-box;
