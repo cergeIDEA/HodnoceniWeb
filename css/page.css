@@ -40,12 +40,14 @@ body {
 
 h1 {
     font-size: 6.5vh;
+    margin:0px;
     /* font-family: Fazeta ;, Cambria, Georgia, "Times New Roman", serif */
     font-weight: 600;
     color: #bb133e;
 }
 h2 {
     font-weight: 400;
+    margin:5vh;
 }
 h3{
     font-size:4vh;
@@ -256,7 +258,7 @@ h4 {
 #intro {
     background-color:#BB133E;
     text-align:center;
-    padding-top:4vh;
+    padding-top:6vh;
     color: white;
     overflow-y:hidden;
 }
@@ -318,16 +320,20 @@ h4 {
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-.modal > .close{
+.close{
     float:right;
     position: relative;
     top:0px;
     right:5px;
 }
-.modal > .close img{
+.close img{
     width:20px;
     cursor: pointer;
     /* fill:#7fb3d9; */
+}
+
+.modalBody {
+    padding:0vw 5vw 0vw 5vw;
 }
 .modalBody h3 {
     color:#bb133e;
