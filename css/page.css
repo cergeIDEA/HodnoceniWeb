@@ -63,6 +63,11 @@ h4 {
     text-align: center;
 }
 
+.footnote{
+    font-size: calc(12px + 0.4vh);
+    line-height: 1.1;
+}
+
 .col {
     box-sizing: border-box;
     float: left;
@@ -282,6 +287,10 @@ h4 {
     padding-top:10vh;
     color: black;
     box-sizing: border-box;
+}
+
+#thanks #title {
+    margin-bottom:3vh;
 }
 
 #shares img {
