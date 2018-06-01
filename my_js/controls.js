@@ -171,7 +171,7 @@ function openDescBox(selector,d,IsAvailable){
 
 function descBoxData(div,d) {
     div = div.append('<p><strong>' + d.Jednotka_name + '</strong> (' + d.Predkladatel_long + ')</p>')
-    div = div.append('<p>V letech 2011 - 2015 celkem ' + d.Total + ' článků indexovaných ve Scopusu. Z toho ' + d.Predatory + ' v predátorských a ' + d.Czech + ' v místních časopisech.</p>')
+    div = div.append('<p>V letech 2011 - 2015 celkem ' + d.Total + ' článků indexovaných ve Scopusu. Z toho ' + d.Predatory + ' v&nbsp;predátorských a ' + d.Czech + ' v&nbsp;místních časopisech.</p>')
     div = div.append('<p>Stáhněte si seznam článků v <a href="xls/'+ d.JEDNOTKA +'_Predatory.xlsx">predátorských</a> a <a href="xls/'+ d.JEDNOTKA +'_Local.xlsx">místních</a> časopisech nebo <a href="xls/'+ d.JEDNOTKA +'_All.xlsx">všech</a> článků.</p>')     
     div = div.append('<div id="closedescbox" onclick="closeBox(\'#mainApp\')">[-]</div>')
     return div
@@ -201,7 +201,7 @@ function descBoxDefault() {
     div = $('#descbox')
     div.hide();
     div.empty();
-    div.append('<p>Kliknutím na legendu <strong>zobrazíte či skryjete</strong> různé obory a typy pracovišť</p>')
+    div.append('<p>Kliknutím na legendu <strong>zobrazíte či skryjete</strong> různé obory a typy pracovišť.</p>')
     div.append('<p>Pro podrobnosti <strong>klikněte</strong> na jednotlivý bod či <strong>vyhledejte</strong> konkrétní pracoviště podle názvu v roletkovém menu nad grafem.</p>')
     div.append('<p>Po vybrání konkrétního pracoviště si budete moci <strong>stáhnout</strong> seznam článků v predátorských a místních časopisech.</p>')
 

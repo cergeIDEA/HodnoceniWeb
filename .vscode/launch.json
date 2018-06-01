@@ -16,7 +16,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "CERGE desktop",
-            "file": "C:/Users/vmachac/Dropbox/Hugo/HodnoceniWeb/index.html",
+            "file": "D:/Dropbox/Hugo/HodnoceniWeb/index.html",
             "webRoot": "${workspaceFolder}"
         }
 
