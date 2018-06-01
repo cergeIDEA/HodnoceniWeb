@@ -39,13 +39,15 @@ function waypointing() {
     function fixBox(selector,parent,target,toppos) {
         element = $(parent+ ' ' +selector).detach();
         $(target).append(element)
-        $(target  + ' ' + selector).css({top:toppos,'box-shadow':'0 0 0 0'})
+        $(target  + ' ' + selector).css({top:toppos})
+        $(target + ' ' + selector + ' .box').css('box-shadow','0 0 0 0')
     }
 
     function floatBox(selector,parent,target) {
         element = $(parent + ' ' + selector).detach();
         $(target).append(element)
-        $(element).css({top:'0px','box-shadow': '0px 0px 20px 4px #d1d4d3'})
+        $(element).css('top','0px')
+        $(target + ' ' + selector + ' .box').css('box-shadow','0px 0px 20px 4px #d1d4d3')
     }
     
     // fixing menu and adding shadow 
@@ -107,23 +109,23 @@ function waypointing() {
 
     waypoints = $('#dyk_wrap').waypoint({handler: function(direction) {
         if (direction === 'down') {
-            fixBox('#didyouknow','#dyk_wrap','.fixactive .chartcontainer',$('#mainApp .controls').position().top )
+            fixBox('#boxes','#dyk_wrap','.fixactive .chartcontainer',$('#mainApp .controls').position().top )
         } else {
-            floatBox('#didyouknow','.fixactive .chartcontainer','#dyk_wrap .chartcontainer')
+            floatBox('#boxes','.fixactive .chartcontainer','#dyk_wrap .chartcontainer')
         }
     },
         offset:$('#mainApp .controls').position().top
     })
 
-    waypoints = $('#desc_wrap').waypoint({handler: function(direction) {
-        if (direction === 'down') {
-            fixBox('#descbox','#desc_wrap','.fixactive .chartcontainer',$('#mainApp .controls').position().top + $('#didyouknow').height()+50 )
-        } else {
-            floatBox('#descbox','.fixactive .chartcontainer','#desc_wrap .chartcontainer')
-        }
-    },
-        offset:$('#mainApp .controls').position().top + $('#didyouknow').height() +50
-    })
+    // waypoints = $('#desc_wrap').waypoint({handler: function(direction) {
+    //     if (direction === 'down') {
+    //         fixBox('#descbox','#desc_wrap','.fixactive .chartcontainer',$('#mainApp .controls').position().top + $('#didyouknow').height()+50 )
+    //     } else {
+    //         floatBox('#descbox','.fixactive .chartcontainer','#desc_wrap .chartcontainer')
+    //     }
+    // },
+    //     offset:$('#mainApp .controls').position().top + $('#didyouknow').height() +50
+    // })
 
 
 
