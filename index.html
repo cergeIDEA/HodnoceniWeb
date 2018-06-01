@@ -42,6 +42,14 @@
     </head>
     
     <body onload="loadJS()">
+            <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0';
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
         <div id="everything">
             <div id="intro" class="fix fullscreen fixactive">
                 <div class="content">
@@ -233,8 +241,7 @@
                     <p class="footnote">Doporučená citace: <a class="modalLink" onclick="showModal('modMy')">Macháček, V. a Srholec, M.</a> (2018) Kdo nejvíce publikuje v predátorských a místních časopisech? Studie 4/2018. Think-tank IDEA při NHÚ AV ČR.</p>
                     <p class="footnote">Upozornění: Veškeré případné nepřesnosti a chyby jdou na vrub autorů, stejně jako názory a tvrzení ve studii uvedené. Studie vznikla s podporou Akademie věd ČR v rámci Strategie AV 21. Za cenné připomínky k pracovní verzi studie děkujeme kolegům z CERGE-EI.</p>
                     <br />
-                    <div id="disqus_thread"></div>
-
+                    <div class="fb-comments" data-href="https://vitekzkytek.github.io/HodnoceniWeb/" data-width="600" data-numposts="5"></div>
                 </div>
             </div>
 
@@ -444,25 +451,4 @@
 
     </body>
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script>
-
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-
-    var disqus_config = function () {
-        this.page.url = 'https://ideaapps.cerge-ei.cz/PredatoriMistni/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'PredatoriMistni'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://predatorimistni.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    
-
 </html>
