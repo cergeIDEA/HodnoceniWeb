@@ -304,6 +304,22 @@ h4 {
     position: relative;
 }
 
+.imgMy {
+    margin:0px 40px 40px 40px;
+    width:150px;
+}
+.medailon {
+    margin-bottom:50px;
+}
+.right {
+    float:right;
+}
+
+.left {
+    float:left;
+}
+
+
 .modal {
     background-color:#fefefe;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
