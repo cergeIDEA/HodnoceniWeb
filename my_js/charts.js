@@ -99,8 +99,8 @@ function generateElementStructure(selector) {
 
     parent.append(notes)
 
-    $('#didyouknow').css('left',sizes.chart.width+50)
-    $('#descbox').css('left',sizes.chart.width+50)
+    $('#boxes').css('left',sizes.chart.width+50)
+    // $('#descbox').css('left',sizes.chart.width+50)
 
 
 }

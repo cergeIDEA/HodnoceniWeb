@@ -1,5 +1,5 @@
 import pandas as pd
-instdata = pd.read_excel('Institutions_Final.xlsx',sheet_name='JEDNOTKA')
+instdata = pd.read_excel('data/Institutions_Final.xlsx',sheet_name='JEDNOTKA')
 
 data = pd.read_excel('RIV.xlsx',sheet_name='Sheet1')
 data = data.drop(['JEDNICKA','IsEasternJournal','JrnArts1115'],axis=1)
@@ -39,7 +39,7 @@ for jednotka in instdata.JEDNOTKA.unique():
     # All results
     results = data[data.JEDNOTKA == jednotka]
     writer = pd.ExcelWriter('xls/' +jednotka + '_All.xlsx',engine='xlsxwriter')
-    results.drop(['IsCzechJournal','IsPredatoryJournal'],axis=1).to_excel(writer,sheet_name='RIV',index=False)
+    results.to_excel(writer,sheet_name='RIV',index=False)
     worksheet = writer.sheets['RIV']
     worksheet.set_column('E:E',35,None)
     worksheet.set_column('F:F',60,None)
