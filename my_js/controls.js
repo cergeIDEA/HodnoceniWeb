@@ -1,5 +1,4 @@
-var weblink = 'https://ideaapps.cerge-ei.cz/PredatoriMistni/' //TODO smaz az budu znat adresu!!!!
-var bitly = 'https://bit.ly/2s4oahD'
+var weblink = 'https://idea.cerge-ei.cz/files/PredatoriMistni/' //TODO smaz az budu znat adresu!!!!
 var webtitle = "Kde se nejvíce publikuje v predátorských a místních časopisech?";
 
 
@@ -241,7 +240,7 @@ function shareLinks() {
     $('#fb').attr('href',"https://www.facebook.com/sharer/sharer.php?u=" + encodeURI(weblink));
 
     //Twitter
-    $('#tw').attr('href',"https://twitter.com/intent/tweet?text=" + encodeURI(webtitle + ' ' + bitly) );
+    $('#tw').attr('href',"https://twitter.com/intent/tweet?text=" + encodeURI(webtitle + ' ' + weblink) );
 
     //LinkedIn
     $('#li').attr('href',"http://www.linkedin.com/shareArticle?mini=true&url=" + encodeURI(weblink) + "&title=" + encodeURI(webtitle))
