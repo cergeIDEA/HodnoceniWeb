@@ -35,7 +35,7 @@ for jednotka in instdata.JEDNOTKA.unique():
     # All results
     results = data[data.JEDNOTKA == jednotka]
     writer = pd.ExcelWriter('xls/' +jednotka + '_All.xlsx',engine='xlsxwriter')
-    results.rename(columns={'IsCzechJournal':'IsLocalJournal'},inplace=True)
+    results.rename(columns={'IsCzechJournal':'Místní časopis','IsPredatoryJournal':'Predátorský časopis'},inplace=True)
     results.to_excel(writer,sheet_name='RIV',index=False)
     worksheet = writer.sheets['RIV']
     worksheet.set_column('E:E',35,None)
